@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/home/ProductCard";
+import Swal from "sweetalert2";
 
 const AllProducts = () => {
   const [products, setProducts] = useState(false);
@@ -10,9 +11,26 @@ const AllProducts = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  // delete products
   const handleDelete = (id) => {
-    const leftProducts = products?.filter((product) => product.id !== id);
-    setProducts(leftProducts);
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const leftProducts = products?.filter((product) => product.id !== id);
+        setProducts(leftProducts);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Product has been deleted.",
+          icon: "success",
+        });
+      }
+    });
   };
 
   if (!products) {
