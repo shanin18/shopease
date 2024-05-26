@@ -1,19 +1,22 @@
 import { AiFillStar } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
 import Rating from "react-rating";
-import image from "../../assets/images/banner/watch.png";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { IoIosInformationCircle } from "react-icons/io";
 
-const ProductCard = ({data}) => {
+const ProductCard = ({ data, handleDelete }) => {
   const [hover, setHover] = useState(false);
-  const {name, img, price, ratings, ratingsCount} = data;
+  const location = useLocation().pathname.includes("all-products");
+  const { id, name, img, price, ratings, ratingsCount } = data;
 
   const handleAddToCart = () => {
     console.log("hello");
   };
 
   return (
-    <div className=""
+    <div
+      className=""
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -22,10 +25,29 @@ const ProductCard = ({data}) => {
         <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
           -40%
         </p>
+        {location ? (
+          <div className="rounded-full p-1 absolute top-1 right-1 dropdown dropdown-end">
+            <div className="p-1" tabIndex={0} role="button">
+              <IoIosInformationCircle className="text-2xl" />
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <Link to={`/dashboard/edit-products/${id}`}>Edit</Link>
+              </li>
+              <li>
+                <button onClick={() => handleDelete(id)}>Delete</button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="bg-white rounded-full p-1 absolute top-1 right-1">
+            <MdFavoriteBorder className="text-xl cursor-pointer" />
+          </div>
+        )}
 
-        <div className="bg-white rounded-full p-1 absolute top-1 right-1">
-          <MdFavoriteBorder className="text-xl cursor-pointer" />
-        </div>
         <div>
           <p
             onClick={handleAddToCart}
