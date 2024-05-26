@@ -19,11 +19,21 @@ const Navbar = () => {
             <span className="text-2xl font-bold">ShopEase</span>
           </Link>
           <div className="text-base hidden lg:block">
-            <NavLink className="mr-5 hover:text-gray-900">Home</NavLink>
-            <NavLink className="mr-5 hover:text-gray-900">Products</NavLink>
-            <NavLink className="mr-5 hover:text-gray-900">Contact</NavLink>
-            <NavLink className="mr-5 hover:text-gray-900">About</NavLink>
-            <NavLink className="mr-5 hover:text-gray-900">Login</NavLink>
+            <NavLink to="/" className="mr-5 hover:text-gray-900">
+              Home
+            </NavLink>
+            <NavLink to="/products" className="mr-5 hover:text-gray-900">
+              Products
+            </NavLink>
+            <NavLink to="/contact" className="mr-5 hover:text-gray-900">
+              Contact
+            </NavLink>
+            <NavLink to="/about" className="mr-5 hover:text-gray-900">
+              About
+            </NavLink>
+            <NavLink to="/auth" className="mr-5 hover:text-gray-900">
+              Login
+            </NavLink>
           </div>
           <div className="md:flex items-center gap-6 hidden">
             <div className="relative">
@@ -37,10 +47,7 @@ const Navbar = () => {
             <MdFavoriteBorder className="text-2xl" />
             <CiShoppingCart className="text-3xl" />
           </div>
-          <button
-            className="lg:hidden"
-            onClick={() => setSidebarOpen(true)}
-          >
+          <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
             <HiOutlineBars3 className="text-2xl" />
           </button>
         </div>
@@ -71,19 +78,34 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col">
-            <NavLink className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5">
+            <NavLink
+              to="/"
+              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+            >
               Home
             </NavLink>
-            <NavLink className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5">
+            <NavLink
+              to="/products"
+              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+            >
               Products
             </NavLink>
-            <NavLink className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5">
+            <NavLink
+              to="/contact"
+              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+            >
               Contact
             </NavLink>
-            <NavLink className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5">
+            <NavLink
+              to="/about"
+              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+            >
               About
             </NavLink>
-            <NavLink className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5">
+            <NavLink
+              to="/auth"
+              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+            >
               Login
             </NavLink>
           </div>

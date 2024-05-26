@@ -1,22 +1,10 @@
 import React from "react";
-import googleImage from "../../assets/images/login/google.png";
 import { Link } from "react-router-dom";
 
-const SignUpForm = () => {
+const LoginForm = () => {
   return (
-    <div>
+    <section>
       <form className="space-y-5">
-        <label className="input input-bordered flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 16 16"
-            fill="currentColor"
-            className="w-4 h-4 opacity-70"
-          >
-            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-          </svg>
-          <input type="text" className="outline-none" placeholder="Username" />
-        </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -27,7 +15,7 @@ const SignUpForm = () => {
             <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
-          <input type="text" className="outline-none" placeholder="Email" />
+          <input type="text" className="outline:none" placeholder="Email" />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -42,26 +30,32 @@ const SignUpForm = () => {
               clipRule="evenodd"
             />
           </svg>
-          <input type="password" className="outline-none" placeholder="Password" />
+          <input
+            type="password"
+            className="outline:none"
+            placeholder="Password"
+          />
         </label>
+        <p className="text-right font-medium mt-5">
+          <Link to="#" className="text-red-500 hover:underline">
+            Forget Password
+          </Link>
+        </p>
         <button
           type="submit"
-          className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded btn w-full"
+          className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded btn w-full text-lg"
         >
-          Sign up
+          Log In
         </button>
       </form>
-      <div className="divider font-medium">OR</div>
-      <button
-        type="submit"
-        className="border py-2 px-6 focus:outline-none bg-gray-100 rounded btn w-full"
-      >
-        <img src={googleImage} alt="google logo" />
-        Sign up with Google
-      </button>
-      <p className="text-center mt-5">Already have an account? <Link to="/auth" className="text-red-500 hover:underline">Login</Link></p>
-    </div>
+      <p className="text-right font-medium mt-5">
+        No Account? please
+        <Link to="/auth/signup" className="text-red-500 ml-2 underline">
+          Sign up
+        </Link>
+      </p>
+    </section>
   );
 };
 
-export default SignUpForm;
+export default LoginForm;

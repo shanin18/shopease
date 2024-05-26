@@ -6,6 +6,7 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import LoginLayout from "../layouts/LoginLayout";
 
 const router = createBrowserRouter([
   {
@@ -17,26 +18,31 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path:"/products" ,
+        path: "products",
         element: <Products />,
       },
       {
-        path:"/contact",
+        path: "contact",
         element: <Contact />,
       },
       {
-        path:"/about",
+        path: "about",
         element: <About />,
       },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <LoginLayout />,
+    children: [
       {
-        path:"/login",
+        index: true,
         element: <Login />,
       },
       {
-        path:"/signup",
+        path: "/auth/signup",
         element: <SignUp />,
       },
-
     ],
   },
 ]);
