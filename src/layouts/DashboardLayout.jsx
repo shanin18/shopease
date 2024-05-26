@@ -5,7 +5,6 @@ import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation().pathname.includes("edit-products");
-  console.log(location);
 
   return (
     <section className="text-gray-600 h-screen overflow-hidden">
