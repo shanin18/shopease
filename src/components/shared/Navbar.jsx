@@ -42,6 +42,14 @@ const Navbar = () => {
                 Login
               </NavLink>
             )}
+            {user?.email && (
+              <NavLink
+                to="/dashboard/all-products"
+                className="mr-5 hover:text-gray-900"
+              >
+                Dashboard
+              </NavLink>
+            )}
           </div>
           <div className="md:flex items-center gap-6 hidden">
             <div className="relative">

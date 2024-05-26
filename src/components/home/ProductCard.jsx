@@ -13,7 +13,7 @@ const ProductCard = ({data}) => {
   };
 
   return (
-    <div className="border"
+    <div className=""
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >

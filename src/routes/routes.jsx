@@ -7,6 +7,10 @@ import Login from "../pages/Login";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import AuthLayout from "../layouts/AuthLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AddProducts from "../pages/AddProducts";
+import AllProducts from "../pages/AllProducts";
+import EditProducts from "../pages/EditProducts";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +46,25 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <SignUp />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "all-products",
+        element: <AllProducts />,
+        loader: () => fetch("http://localhost:3000/products"),
+      },
+      {
+        path: "add-products",
+        element: <AddProducts />,
+      },
+      {
+        path: "edit-products",
+        element: <EditProducts />,
       },
     ],
   },
