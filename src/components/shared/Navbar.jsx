@@ -13,6 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     await logout();
   };
+  console.log(user);
 
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   return (
@@ -20,7 +21,6 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div
           className="flex flex-wrap p-5 items-center justify-between"
-          // eslint-disable-next-line react/no-unknown-property
           bis_skin_checked="1"
         >
           <Link to="/">
@@ -75,7 +75,7 @@ const Navbar = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                      src={"https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"}
                     />
                   </div>
                 </div>
@@ -115,8 +115,9 @@ const Navbar = () => {
           <CiShoppingCart className="text-3xl" />
         </div>
 
+        {/* mobile sidebar */}
         <div
-          className={`h-screen w-full sm:w-[300px] shadow-2xl text-gray-700 bg-white duration-500 absolute  top-0  ${
+          className={`h-screen lg:hidden z-50 w-full sm:w-[300px] shadow-2xl text-gray-700 bg-white duration-500 absolute  top-0  ${
             sidebarOpen ? "left-0" : "-left-[670px]"
           }`}
         >
@@ -147,10 +148,7 @@ const Navbar = () => {
               </NavLink>
             )}
             {user?.email && (
-              <NavLink
-                to="/dashboard/all-products"
-                className={getClassNames}
-              >
+              <NavLink to="/dashboard/all-products" className={getClassNames}>
                 Dashboard
               </NavLink>
             )}

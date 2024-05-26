@@ -12,7 +12,7 @@ const CarouselCard = ({ item }) => {
           <GoArrowRight className="md:text-xl lg:text-2xl" />
         </button>
       </div>
-      <div className="w-full">
+      <div className="">
         <img src={image} alt="phone" />
       </div>
     </div>

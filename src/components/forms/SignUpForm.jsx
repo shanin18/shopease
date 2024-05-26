@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 
 const SignUpForm = () => {
   const [passMatch, setPassMatch] = useState(true);
-  const { createUser, updateUserProfile, user } = useAuth();
+  const { createUser, updateUserProfile, user, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -31,6 +31,15 @@ const SignUpForm = () => {
       if (user) {
         navigate(from);
       }
+    }
+  };
+
+  const handleGoogleSignIn = () => {
+    try {
+      googleLogin();
+      navigate(from)
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -124,6 +133,7 @@ const SignUpForm = () => {
       </form>
       <div className="divider font-medium">OR</div>
       <button
+        onClick={handleGoogleSignIn}
         type="submit"
         className="border py-2 px-6 focus:outline-none bg-gray-100 rounded btn w-full"
       >
