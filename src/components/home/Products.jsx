@@ -1,17 +1,14 @@
 import Slider from "react-slick";
 import ProductCard from "./ProductCard";
-import { useEffect, useState } from "react";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-
+const Products = ({ data }) => {
   const settings = {
     infinite: true,
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
     arrows: false,
-    className:"mx-2 md:mx-0",
+    className: "mx-2 md:mx-0",
     responsive: [
       {
         breakpoint: 360,
@@ -45,16 +42,10 @@ const Products = () => {
     ],
   };
 
-  useEffect(() => {
-    fetch("/products.json")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
-
   return (
     <div>
       <Slider {...settings}>
-        {products.map((item, index) => (
+        {data.map((item, index) => (
           <div key={index} className="px-3">
             <ProductCard data={item} />
           </div>

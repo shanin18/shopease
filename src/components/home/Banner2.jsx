@@ -1,6 +1,6 @@
 import React from "react";
 import Countdown from "../others/Countdown";
-import speakerImg from "../../assets/images/banner2/jblSpeaker.png"
+import speakerImg from "../../assets/images/banner2/jblSpeaker.png";
 
 const Banner2 = () => {
   return (
@@ -10,10 +10,12 @@ const Banner2 = () => {
           Enhance Your <br /> Music Experience
         </h2>
         <Countdown />
-        <button className="text-white bg-green-500 rounded px-7 py-2 w-fit">Buy Now</button>
+        <button className="text-white bg-green-500 rounded px-7 py-2 w-fit">
+          Buy Now
+        </button>
       </div>
       <div className="flex justify-center">
-        <img src={speakerImg} alt="jbl speaker" className="w-2/3 md:w-full"/>
+        <img src={speakerImg} alt="jbl speaker" className="w-2/3 md:w-full" />
       </div>
     </section>
   );

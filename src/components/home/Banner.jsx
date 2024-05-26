@@ -14,8 +14,6 @@ const Banner = () => {
     "Health & Beauty",
   ];
 
-
-
   return (
     <section className="text-gray-600">
       <div className="lg:flex" bis_skin_checked="1">

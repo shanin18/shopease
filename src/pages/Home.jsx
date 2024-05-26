@@ -1,3 +1,4 @@
+import { useLoaderData } from "react-router-dom";
 import Banner from "../components/home/Banner";
 import Banner2 from "../components/home/Banner2";
 import BestSelling from "../components/home/BestSelling";
@@ -7,14 +8,16 @@ import NewArrival from "../components/home/NewArrival";
 import Services from "../components/home/Services";
 
 const Home = () => {
+  const data = useLoaderData();
+
   return (
     <div className="container mx-auto space-y-10 md:space-y-16">
       <Banner />
-      <FlashSales />
+      <FlashSales data={data} />
       <hr />
       <Categories />
       <hr />
-      <BestSelling />
+      <BestSelling data={data} />
       <Banner2 />
       <NewArrival />
       <Services />

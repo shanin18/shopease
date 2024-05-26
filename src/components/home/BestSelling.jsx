@@ -2,7 +2,7 @@ import React from "react";
 import SectionHeader from "../others/SectionHeader";
 import Products from "./Products";
 
-const BestSelling = () => {
+const BestSelling = ({ data }) => {
   return (
     <section>
       <div className="flex flex-wrap items-end justify-between mb-8 gap-4 p-5 md:p-0">
@@ -11,7 +11,7 @@ const BestSelling = () => {
           View All
         </button>
       </div>
-      <Products />
+      <Products data={data} />
     </section>
   );
 };
