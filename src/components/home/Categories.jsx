@@ -18,9 +18,9 @@ const Categories = () => {
   ];
 
   return (
-    <section className="p-5">
+    <section className="p-5 md:p-0">
       <SectionHeader category="Categories" title="Browse By Category" />
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 mt-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 mt-8">
         {categories?.map((category) => (
           <div
             key={category.name}
