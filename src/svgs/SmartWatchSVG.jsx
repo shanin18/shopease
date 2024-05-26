@@ -9,27 +9,27 @@ const SmartWatchSVG = ({ color }) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_803_629)">
+      <g clipPath="url(#clip0_803_629)">
         <path
           d="M35 14H21C17.134 14 14 17.134 14 21V35C14 38.866 17.134 42 21 42H35C38.866 42 42 38.866 42 35V21C42 17.134 38.866 14 35 14Z"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M21 42V49H35V42"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M21 14V7H35V14"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <line
           x1="24"
@@ -37,8 +37,8 @@ const SmartWatchSVG = ({ color }) => {
           x2="24"
           y2="34"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="28"
@@ -46,8 +46,8 @@ const SmartWatchSVG = ({ color }) => {
           x2="28"
           y2="34"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="32"
@@ -55,8 +55,8 @@ const SmartWatchSVG = ({ color }) => {
           x2="32"
           y2="34"
           stroke={"black" || color}
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
       </g>
       <defs>

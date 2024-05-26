@@ -4,9 +4,15 @@ import { HiOutlineBars3 } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { logout, user } = useAuth();
+
+  const handleLogout = async () => {
+    await logout();
+  };
   return (
     <nav className="border-b  relative">
       <div className="container mx-auto">
@@ -31,9 +37,11 @@ const Navbar = () => {
             <NavLink to="/about" className="mr-5 hover:text-gray-900">
               About
             </NavLink>
-            <NavLink to="/auth/login" className="mr-5 hover:text-gray-900">
-              Login
-            </NavLink>
+            {!user?.email && (
+              <NavLink to="/auth/login" className="mr-5 hover:text-gray-900">
+                Login
+              </NavLink>
+            )}
           </div>
           <div className="md:flex items-center gap-6 hidden">
             <div className="relative">
@@ -44,8 +52,41 @@ const Navbar = () => {
               />
               <CiSearch className="absolute text-xl top-2 right-2" />
             </div>
-            <MdFavoriteBorder className="text-2xl" />
-            <CiShoppingCart className="text-3xl" />
+            {user?.email && <MdFavoriteBorder className="text-2xl" />}
+            {user?.email && <CiShoppingCart className="text-3xl" />}
+
+            {user?.email && (
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to="#" className="justify-between">
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="#">Settings</Link>
+                  </li>
+                  <li onClick={handleLogout}>
+                    <p>Logout</p>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
           <button className="lg:hidden" onClick={() => setSidebarOpen(true)}>
             <HiOutlineBars3 className="text-2xl" />
