@@ -3,17 +3,17 @@ import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const location = useLocation().pathname.includes("signup");
   const { logout, user } = useAuth();
 
   const handleLogout = async () => {
     await logout();
   };
-  console.log(user);
 
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   return (
@@ -40,9 +40,23 @@ const Navbar = () => {
               About
             </NavLink>
             {!user?.email && (
-              <NavLink to="/auth/login" className="mr-5 hover:text-gray-900">
-                Login
-              </NavLink>
+              <span>
+                {location ? (
+                  <NavLink
+                    to="/auth/signup"
+                    className="mr-5 hover:text-gray-900"
+                  >
+                    Sign Up
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    to="/auth/login"
+                    className="mr-5 hover:text-gray-900"
+                  >
+                    Login
+                  </NavLink>
+                )}
+              </span>
             )}
             {user?.email && (
               <NavLink
@@ -75,7 +89,9 @@ const Navbar = () => {
                   <div className="w-10 rounded-full">
                     <img
                       alt="Tailwind CSS Navbar component"
-                      src={"https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"}
+                      src={
+                        "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                      }
                     />
                   </div>
                 </div>
@@ -142,11 +158,18 @@ const Navbar = () => {
             <NavLink to="/about" className={getClassNames}>
               About
             </NavLink>
-            {!user?.email && (
+            {!user?.email && location && (
+              <NavLink to="/auth/signup" className={getClassNames}>
+                Sign Up
+              </NavLink>
+            )}
+
+            {!user?.email && !location && (
               <NavLink to="/auth/login" className={getClassNames}>
                 Login
               </NavLink>
             )}
+
             {user?.email && (
               <NavLink to="/dashboard/all-products" className={getClassNames}>
                 Dashboard

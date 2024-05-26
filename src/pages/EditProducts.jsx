@@ -68,25 +68,25 @@ const EditProducts = () => {
   };
 
   return (
-    <section class="text-gray-600 body-font relative h-screen overflow-y-scroll">
-      <div class="container px-5 py-24 mx-auto" bis_skin_checked="1">
+    <section className="text-gray-600 body-font relative h-screen overflow-y-scroll">
+      <div className="container px-5 py-24 mx-auto" bis_skin_checked="1">
         <div
-          class="flex flex-col text-center w-full mb-12"
+          className="flex flex-col text-center w-full mb-12"
           bis_skin_checked="1"
         >
-          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
             Edit This Product
           </h1>
         </div>
         <form
           onSubmit={handleEditForm}
-          class="lg:w-1/2 md:w-2/3 mx-auto"
+          className="lg:w-1/2 md:w-2/3 mx-auto"
           bis_skin_checked="1"
         >
-          <div class="flex flex-wrap -m-2" bis_skin_checked="1">
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="name" class="leading-7 text-sm text-gray-600">
+          <div className="flex flex-wrap -m-2" bis_skin_checked="1">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="name" className="leading-7 text-sm text-gray-600">
                   Name
                 </label>
                 <input
@@ -94,13 +94,13 @@ const EditProducts = () => {
                   id="name"
                   name="name"
                   defaultValue={product?.name}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="category" class="leading-7 text-sm text-gray-600">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="category" className="leading-7 text-sm text-gray-600">
                   Category
                 </label>
                 <input
@@ -108,13 +108,13 @@ const EditProducts = () => {
                   id="category"
                   name="category"
                   defaultValue={product?.category}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="seller" class="leading-7 text-sm text-gray-600">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="seller" className="leading-7 text-sm text-gray-600">
                   Seller
                 </label>
                 <input
@@ -122,13 +122,13 @@ const EditProducts = () => {
                   id="seller"
                   name="seller"
                   defaultValue={product?.seller}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="price" class="leading-7 text-sm text-gray-600">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="price" className="leading-7 text-sm text-gray-600">
                   Price
                 </label>
                 <input
@@ -136,13 +136,13 @@ const EditProducts = () => {
                   id="price"
                   name="price"
                   defaultValue={product?.price}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="image" class="leading-7 text-sm text-gray-600">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="image" className="leading-7 text-sm text-gray-600">
                   Image URL
                 </label>
                 <input
@@ -150,13 +150,13 @@ const EditProducts = () => {
                   id="image"
                   name="image"
                   defaultValue={product?.img}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full sm:w-1/2" bis_skin_checked="1">
-              <div class="relative" bis_skin_checked="1">
-                <label for="ratings" class="leading-7 text-sm text-gray-600">
+            <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+              <div className="relative" bis_skin_checked="1">
+                <label htmlFor="ratings" className="leading-7 text-sm text-gray-600">
                   ratings
                 </label>
                 <input
@@ -164,15 +164,15 @@ const EditProducts = () => {
                   id="ratings"
                   name="ratings"
                   defaultValue={product?.ratings}
-                  class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
                 />
               </div>
             </div>
-            <div class="p-2 w-full" bis_skin_checked="1">
+            <div className="p-2 w-full" bis_skin_checked="1">
               <input
                 type="submit"
                 value="Edit Product"
-                class="btn w-full flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg"
+                className="btn w-full flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg"
               />
             </div>
           </div>
