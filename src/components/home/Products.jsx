@@ -11,6 +11,7 @@ const Products = () => {
     slidesToShow: 5,
     slidesToScroll: 5,
     arrows: false,
+    className:"mx-2 md:mx-0",
     responsive: [
       {
         breakpoint: 360,
