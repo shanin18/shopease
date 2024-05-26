@@ -13,6 +13,8 @@ const Navbar = () => {
   const handleLogout = async () => {
     await logout();
   };
+
+  const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   return (
     <nav className="border-b  relative">
       <div className="container mx-auto">
@@ -100,7 +102,7 @@ const Navbar = () => {
             <HiOutlineBars3 className="text-2xl" />
           </button>
         </div>
-        <div className="flex items-center gap-6 p-5 pt-0 md:hidden">
+        <div className="flex items-center justify-end gap-6 p-5 pt-0 md:hidden">
           <div className="relative">
             <input
               type="text"
@@ -127,36 +129,31 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col">
-            <NavLink
-              to="/"
-              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-            >
+            <NavLink to="/" className={getClassNames}>
               Home
             </NavLink>
-            <NavLink
-              to="/products"
-              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-            >
+            <NavLink to="/products" className={getClassNames}>
               Products
             </NavLink>
-            <NavLink
-              to="/contact"
-              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-            >
+            <NavLink to="/contact" className={getClassNames}>
               Contact
             </NavLink>
-            <NavLink
-              to="/about"
-              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-            >
+            <NavLink to="/about" className={getClassNames}>
               About
             </NavLink>
-            <NavLink
-              to="/auth/login"
-              className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-            >
-              Login
-            </NavLink>
+            {!user?.email && (
+              <NavLink to="/auth/login" className={getClassNames}>
+                Login
+              </NavLink>
+            )}
+            {user?.email && (
+              <NavLink
+                to="/dashboard/all-products"
+                className={getClassNames}
+              >
+                Dashboard
+              </NavLink>
+            )}
           </div>
         </div>
       </div>

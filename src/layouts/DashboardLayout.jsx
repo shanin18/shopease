@@ -6,6 +6,11 @@ const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation().pathname.includes("edit-products");
 
+  const getClassNames = ({ isActive }) =>
+    isActive
+      ? "active"
+      : "inactive";
+
   return (
     <section className="text-gray-600 h-screen overflow-hidden">
       <div className="flex" bis_skin_checked="1">
@@ -22,28 +27,19 @@ const DashboardLayout = () => {
               </button>
             </div>
             <div className="flex flex-col">
-              <NavLink
-                to="/"
-                className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-              >
+              <NavLink to="/" className={getClassNames}>
                 Home
               </NavLink>
-              <NavLink
-                to="/dashboard/all-products"
-                className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-              >
+              <NavLink to="/dashboard/all-products" className={getClassNames}>
                 All Products
               </NavLink>
-              <NavLink
-                to="/dashboard/add-products"
-                className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
-              >
+              <NavLink to="/dashboard/add-products" className={getClassNames}>
                 Add Products
               </NavLink>
               {location && (
                 <NavLink
                   to="/dashboard/edit-products"
-                  className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
+                  className={getClassNames}
                 >
                   Edit Products
                 </NavLink>
