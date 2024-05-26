@@ -1,11 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import googleImage from "../../assets/images/login/google.png";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const SignUpForm = () => {
+  const [passMatch, setPassMatch] = useState(true);
+  const { createUser, updateUserProfile, user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const name = form.name.value;
+    const image = "";
+    const email = form.email.value;
+    const password = form.password.value;
+    const confirm_password = form.confirm_password.value;
+
+    if (password !== confirm_password) {
+      setPassMatch(false);
+    }
+
+    if (password === confirm_password) {
+      createUser(email, password);
+      updateUserProfile(name, image);
+      if (user) {
+        navigate(from);
+      }
+    }
+  };
+
   return (
     <div>
-      <form className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +46,12 @@ const SignUpForm = () => {
           >
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
           </svg>
-          <input type="text" className="outline-none" placeholder="Username" />
+          <input
+            type="text"
+            name="name"
+            className="outline-none"
+            placeholder="user name"
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -27,7 +63,12 @@ const SignUpForm = () => {
             <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
-          <input type="text" className="outline-none" placeholder="Email" />
+          <input
+            type="text"
+            name="email"
+            className="outline-none"
+            placeholder="Email"
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -42,14 +83,44 @@ const SignUpForm = () => {
               clipRule="evenodd"
             />
           </svg>
-          <input type="password" className="outline-none" placeholder="Password" />
+          <input
+            type="password"
+            name="password"
+            className="outline-none"
+            placeholder="Password"
+          />
         </label>
-        <button
+
+        <label className="input input-bordered flex items-center gap-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 16 16"
+            fill="currentColor"
+            className="w-4 h-4 opacity-70"
+          >
+            <path
+              fillRule="evenodd"
+              d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <input
+            type="password"
+            name="confirm_password"
+            placeholder="confirm password"
+            className="outline-none"
+          />
+        </label>
+        {!passMatch && (
+          <div className="my-2">
+            <p className="text-red-500">Passwords do not match!</p>
+          </div>
+        )}
+        <input
           type="submit"
+          value="Sign up"
           className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded btn w-full"
-        >
-          Sign up
-        </button>
+        />
       </form>
       <div className="divider font-medium">OR</div>
       <button
@@ -59,7 +130,12 @@ const SignUpForm = () => {
         <img src={googleImage} alt="google logo" />
         Sign up with Google
       </button>
-      <p className="text-center mt-5">Already have an account? <Link to="/auth" className="text-red-500 hover:underline">Login</Link></p>
+      <p className="text-center mt-5">
+        Already have an account?
+        <Link to="/auth/login" className="text-red-500 underline">
+          Login
+        </Link>
+      </p>
     </div>
   );
 };

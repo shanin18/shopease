@@ -1,10 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 const LoginForm = () => {
+  const { signIn, user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    await signIn(email, password);
+  };
+
+  useEffect(() => {
+    if (user) {
+      navigate(from, { replace: true });
+    }
+  }, [user, from, navigate]);
+
   return (
     <section>
-      <form className="space-y-5">
+      <form onSubmit={handleSubmit} className="space-y-5">
         <label className="input input-bordered flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -15,7 +36,12 @@ const LoginForm = () => {
             <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
           </svg>
-          <input type="text" className="outline:none" placeholder="Email" />
+          <input
+            type="text"
+            name="email"
+            className="outline:none"
+            placeholder="Email"
+          />
         </label>
         <label className="input input-bordered flex items-center gap-2">
           <svg
@@ -32,6 +58,7 @@ const LoginForm = () => {
           </svg>
           <input
             type="password"
+            name="password"
             className="outline:none"
             placeholder="Password"
           />
@@ -41,14 +68,13 @@ const LoginForm = () => {
             Forget Password
           </Link>
         </p>
-        <button
+        <input
           type="submit"
+          value="Log In"
           className="text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded btn w-full text-lg"
-        >
-          Log In
-        </button>
+        />
       </form>
-      <p className="text-right font-medium mt-5">
+      <p className="text-right mt-5">
         No Account? please
         <Link to="/auth/signup" className="text-red-500 ml-2 underline">
           Sign up

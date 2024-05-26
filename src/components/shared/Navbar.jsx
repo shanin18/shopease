@@ -31,7 +31,7 @@ const Navbar = () => {
             <NavLink to="/about" className="mr-5 hover:text-gray-900">
               About
             </NavLink>
-            <NavLink to="/auth" className="mr-5 hover:text-gray-900">
+            <NavLink to="/auth/login" className="mr-5 hover:text-gray-900">
               Login
             </NavLink>
           </div>
@@ -103,7 +103,7 @@ const Navbar = () => {
               About
             </NavLink>
             <NavLink
-              to="/auth"
+              to="/auth/login"
               className="mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5"
             >
               Login

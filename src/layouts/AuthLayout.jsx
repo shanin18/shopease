@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/shared/Navbar";
 import Footer from "../components/shared/Footer";
 
-const LoginLayout = () => {
+const AuthLayout = () => {
   return (
     <section>
       <Navbar />
@@ -27,4 +27,4 @@ const LoginLayout = () => {
   );
 };
 
-export default LoginLayout;
+export default AuthLayout;
