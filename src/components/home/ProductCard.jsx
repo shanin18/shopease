@@ -1,12 +1,12 @@
-import { AiFillStar } from "react-icons/ai";
 import { MdFavoriteBorder } from "react-icons/md";
-import Rating from "react-rating";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosInformationCircle } from "react-icons/io";
+import Ratings from "../others/Ratings";
 
 const ProductCard = ({ data, handleDelete }) => {
   const [hover, setHover] = useState(false);
+  const navigate = useNavigate();
   const location = useLocation().pathname.includes("all-products");
   const { id, name, img, price, ratings, ratingsCount } = data;
 
@@ -16,9 +16,9 @@ const ProductCard = ({ data, handleDelete }) => {
 
   return (
     <div
-      className=""
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={() => navigate(`/products/details/${id}`)}
     >
       <div className="relative overflow-hidden">
         <img src={img} alt="" />
@@ -63,12 +63,7 @@ const ProductCard = ({ data, handleDelete }) => {
         <p className="font-medium">{name}</p>
         <p className="font-medium text-red-500">${price}</p>
         <div className="flex items-center gap-1">
-          <Rating
-            readonly
-            initialRating={ratings}
-            emptySymbol={<AiFillStar className="icon" color="#ddd" />}
-            fullSymbol={<AiFillStar className="icon" color="#f8c41a" />}
-          />
+          <Ratings ratings={ratings} />
           <span className="text-xs font-semibold">({ratingsCount})</span>
         </div>
       </div>

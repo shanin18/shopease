@@ -37,7 +37,10 @@ const SignUpForm = () => {
   const handleGoogleSignIn = () => {
     try {
       googleLogin();
-      navigate(from)
+      if (user) {
+        console.log(user)
+        navigate(from);
+      }
     } catch (error) {
       console.log(error);
     }

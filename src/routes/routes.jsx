@@ -11,6 +11,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import AddProducts from "../pages/AddProducts";
 import AllProducts from "../pages/AllProducts";
 import EditProducts from "../pages/EditProducts";
+import ProductDetails from "../pages/ProductDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +22,21 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader:() => fetch("http://localhost:3000/products")
+        loader: () => fetch("http://localhost:3000/products"),
       },
       {
         path: "products",
         element: <Products />,
+      },
+      {
+        path: "products/details/:id",
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/products/${params?.id}`),
       },
       {
         path: "contact",

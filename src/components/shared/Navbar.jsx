@@ -27,7 +27,7 @@ const Navbar = () => {
             <span className="text-2xl font-bold">ShopEase</span>
           </Link>
           <div className="text-base hidden lg:block">
-            <NavLink to="/" className="mr-5 hover:text-gray-900">
+            <NavLink to="/" className="mr-5 hover:text-red-900">
               Home
             </NavLink>
             <NavLink to="/products" className="mr-5 hover:text-gray-900">
