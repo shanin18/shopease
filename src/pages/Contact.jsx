@@ -1,13 +1,9 @@
 import React from "react";
 import TelephoneSVG from "../svgs/TelephoneSVG";
 import EmailSVG from "../svgs/EmailSVG";
+import ContactUsForm from "../components/forms/ContactUsForm";
 
 const Contact = () => {
-
-    // todo
-    const handleContactForm = () =>{
-        console.log("contact form")
-    }
   return (
     <section class="text-gray-600 body-font relative">
       <div
@@ -20,7 +16,7 @@ const Contact = () => {
         >
           <div className="space-y-4">
             <div className="flex items-center gap-5">
-              <div className="bg-red-500 w-fit rounded-full p-3">
+              <div className="bg-red-500 w-11 h-11 flex items-center justify-center rounded-full">
                 <TelephoneSVG />
               </div>
               <div>
@@ -35,7 +31,7 @@ const Contact = () => {
           <hr className="my-8" />
           <div className="space-y-4">
             <div className="flex items-center gap-5">
-              <div className="bg-red-500 w-fit rounded-full p-3">
+              <div className="bg-red-500 w-11 h-11 flex items-center justify-center rounded-full">
                 <EmailSVG />
               </div>
               <div>
@@ -57,47 +53,7 @@ const Contact = () => {
           class="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden p-10 shadow-xl mt-8 md:mt-0"
           bis_skin_checked="1"
         >
-          <form onClick={handleContactForm} className="space-y-8">
-            <div className="flex flex-wrap gap-5">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Name"
-                required
-                class="w-full bg-gray-100 rounded focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="Email"
-                class="w-full bg-gray-100 rounded focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-              <input
-                type="number"
-                id="phone"
-                name="phone"
-                placeholder="Phone"
-                class="w-full bg-gray-100 rounded focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out"
-              />
-            </div>
-            <textarea
-              id="message"
-              name="message"
-              required
-              placeholder="Message"
-              class="w-full bg-gray-100 rounded focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-36 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out "
-            ></textarea>
-            <div className="text-right">
-              <input
-                type="submit"
-                value="Send Message"
-                class="text-white btn bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-base"
-              />
-            </div>
-          </form>
+          <ContactUsForm />
         </div>
       </div>
     </section>
