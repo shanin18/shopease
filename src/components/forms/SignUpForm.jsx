@@ -11,7 +11,7 @@ const SignUpForm = () => {
 
   const from = location?.state?.from?.pathname || "/";
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -26,23 +26,18 @@ const SignUpForm = () => {
     }
 
     if (password === confirm_password) {
-      createUser(email, password);
-      updateUserProfile(name, image);
-      if (user) {
-        navigate(from);
+      await createUser(email, password);
+      await updateUserProfile(name, image);
+      if (user?.displayName) {
+        navigate(from, { replace: true });
       }
     }
   };
 
-  const handleGoogleSignIn = () => {
-    try {
-      googleLogin();
-      if (user) {
-        console.log(user)
-        navigate(from);
-      }
-    } catch (error) {
-      console.log(error);
+  const handleGoogleSignIn = async () => {
+    await googleLogin();
+    if (user?.displayName) {
+      navigate(from, { replace: true });
     }
   };
 
@@ -61,7 +56,7 @@ const SignUpForm = () => {
           <input
             type="text"
             name="name"
-            className="outline-none"
+            className="outline:none w-full"
             placeholder="user name"
           />
         </label>
@@ -78,7 +73,7 @@ const SignUpForm = () => {
           <input
             type="text"
             name="email"
-            className="outline-none"
+            className="outline:none w-full"
             placeholder="Email"
           />
         </label>
@@ -98,7 +93,7 @@ const SignUpForm = () => {
           <input
             type="password"
             name="password"
-            className="outline-none"
+            className="outline:none w-full"
             placeholder="Password"
           />
         </label>
@@ -120,7 +115,7 @@ const SignUpForm = () => {
             type="password"
             name="confirm_password"
             placeholder="confirm password"
-            className="outline-none"
+            className="outline:none w-full"
           />
         </label>
         {!passMatch && (

@@ -62,22 +62,22 @@ const OurTeamMembers = () => {
   ];
 
   return (
-    <section class="text-gray-600 body-font">
-      <div class="container px-5 py-14 md:py-16 lg:py-20 mx-auto" bis_skin_checked="1">
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-14 md:py-16 lg:py-20 mx-auto" bis_skin_checked="1">
         <div
-          class="flex flex-col text-center w-full mb-12"
+          className="flex flex-col text-center w-full mb-12"
           bis_skin_checked="1"
         >
-          <h1 class="text-2xl font-medium title-font mb-4 text-gray-900">
+          <h1 className="text-2xl font-medium title-font mb-4 text-gray-900">
             OUR TEAM
           </h1>
-          <p class="lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
             Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical
             gentrify, subway tile poke farm-to-table. Franzen you probably
             haven't heard of them.
           </p>
         </div>
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" bis_skin_checked="1">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" bis_skin_checked="1">
           {teamMembers?.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}

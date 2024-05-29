@@ -15,6 +15,7 @@ const Navbar = () => {
     await logout();
   };
 
+  console.log(user);
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   return (
     <nav className="border-b  relative">
@@ -127,8 +128,43 @@ const Navbar = () => {
             />
             <CiSearch className="absolute text-xl top-2 right-2" />
           </div>
-          <MdFavoriteBorder className="text-2xl" />
-          <CiShoppingCart className="text-3xl" />
+          {user?.email && <MdFavoriteBorder className="text-2xl" />}
+          {user?.email && <CiShoppingCart className="text-3xl" />}
+
+          {user?.email && (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src={
+                      "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
+                    }
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <Link to="#" className="justify-between">
+                    Profile
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#">Settings</Link>
+                </li>
+                <li onClick={handleLogout}>
+                  <p>Logout</p>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* mobile sidebar */}
@@ -146,32 +182,60 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex flex-col">
-            <NavLink to="/" className={getClassNames}>
+            <NavLink
+              to="/"
+              className={getClassNames}
+              onClick={() => setSidebarOpen(false)}
+            >
               Home
             </NavLink>
-            <NavLink to="/products" className={getClassNames}>
+            <NavLink
+              to="/products"
+              className={getClassNames}
+              onClick={() => setSidebarOpen(false)}
+            >
               Products
             </NavLink>
-            <NavLink to="/contact" className={getClassNames}>
+            <NavLink
+              to="/contact"
+              className={getClassNames}
+              onClick={() => setSidebarOpen(false)}
+            >
               Contact
             </NavLink>
-            <NavLink to="/about" className={getClassNames}>
+            <NavLink
+              to="/about"
+              className={getClassNames}
+              onClick={() => setSidebarOpen(false)}
+            >
               About
             </NavLink>
             {!user?.email && location && (
-              <NavLink to="/auth/signup" className={getClassNames}>
+              <NavLink
+                to="/auth/signup"
+                className={getClassNames}
+                onClick={() => setSidebarOpen(false)}
+              >
                 Sign Up
               </NavLink>
             )}
 
             {!user?.email && !location && (
-              <NavLink to="/auth/login" className={getClassNames}>
+              <NavLink
+                to="/auth/login"
+                className={getClassNames}
+                onClick={() => setSidebarOpen(false)}
+              >
                 Login
               </NavLink>
             )}
 
             {user?.email && (
-              <NavLink to="/dashboard/all-products" className={getClassNames}>
+              <NavLink
+                to="/dashboard/all-products"
+                className={getClassNames}
+                onClick={() => setSidebarOpen(false)}
+              >
                 Dashboard
               </NavLink>
             )}

@@ -7,6 +7,8 @@ const Products = ({ data }) => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 5,
+    autoplay: true,
+    autoplaySpeed: 2000,
     arrows: false,
     className: "mx-2 md:mx-0",
     responsive: [
@@ -31,7 +33,6 @@ const Products = ({ data }) => {
           slidesToScroll: 3,
         },
       },
-
       {
         breakpoint: 1024,
         settings: {

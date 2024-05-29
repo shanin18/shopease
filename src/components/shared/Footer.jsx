@@ -5,18 +5,18 @@ import appstore from "../../assets/images/footer/appstore.png";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <div class="body-font">
+      <div className="body-font">
         <div
-          class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
+          className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col"
           bis_skin_checked="1"
         >
           <div
-            class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
+            className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left"
             bis_skin_checked="1"
           >
-            <p class="text-2xl">Exclusive</p>
-            <p class="mt-2 text-xl">Subscribe</p>
-            <p class="mt-2">Get 10% off your first order</p>
+            <p className="text-2xl">Exclusive</p>
+            <p className="mt-2 text-xl">Subscribe</p>
+            <p className="mt-2">Get 10% off your first order</p>
             
             <label className="flex items-center bg-transparent gap-2 border p-3 rounded-md w-fit mt-4">
               <svg
@@ -37,14 +37,14 @@ const Footer = () => {
             </label>
           </div>
           <div
-            class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center"
+            className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center"
             bis_skin_checked="1"
           >
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
-              <h2 class="title-font font-medium tracking-widest text-lg md:text-xl mb-3">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
+              <h2 className="title-font font-medium tracking-widest text-lg md:text-xl mb-3">
                 Support
               </h2>
-              <nav class="list-none mb-10 space-y-3">
+              <nav className="list-none mb-10 space-y-3">
                 <li>
                   <p>111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
                 </li>
@@ -56,50 +56,50 @@ const Footer = () => {
                 </li>
               </nav>
             </div>
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
-              <h2 class="title-font font-medium  tracking-widest text-lg md:text-xl mb-3">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
+              <h2 className="title-font font-medium  tracking-widest text-lg md:text-xl mb-3">
                 Account
               </h2>
-              <nav class="list-none mb-10 space-y-3">
+              <nav className="list-none mb-10 space-y-3">
                 <li>
-                  <a class="cursor-pointer hover:underline">My Account</a>
+                  <a className="cursor-pointer hover:underline">My Account</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">Login / Register</a>
+                  <a className="cursor-pointer hover:underline">Login / Register</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">Cart</a>
+                  <a className="cursor-pointer hover:underline">Cart</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">Wishlist</a>
+                  <a className="cursor-pointer hover:underline">Wishlist</a>
                 </li>
               </nav>
             </div>
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
-              <h2 class="title-font font-medium  tracking-widest text-lg md:text-xl mb-3">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
+              <h2 className="title-font font-medium  tracking-widest text-lg md:text-xl mb-3">
                 Quick Links
               </h2>
-              <nav class="list-none mb-10 space-y-3">
+              <nav className="list-none mb-10 space-y-3">
                 <li>
-                  <a class="cursor-pointer hover:underline">Privacy Policy</a>
+                  <a className="cursor-pointer hover:underline">Privacy Policy</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">Terms Of Use</a>
+                  <a className="cursor-pointer hover:underline">Terms Of Use</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">FAQ</a>
+                  <a className="cursor-pointer hover:underline">FAQ</a>
                 </li>
                 <li>
-                  <a class="cursor-pointer hover:underline">Contact</a>
+                  <a className="cursor-pointer hover:underline">Contact</a>
                 </li>
               </nav>
             </div>
-            <div class="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
-              <h2 class="title-font font-medium tracking-widest text-lg md:text-xl mb-3">
+            <div className="lg:w-1/4 md:w-1/2 w-full px-4" bis_skin_checked="1">
+              <h2 className="title-font font-medium tracking-widest text-lg md:text-xl mb-3">
                 Download App
               </h2>
-              <nav class="list-none mb-10">
-                <p class="mb-3">Save $3 with App New User Only</p>
+              <nav className="list-none mb-10">
+                <p className="mb-3">Save $3 with App New User Only</p>
                 <div className="flex items-center gap-3 mb-5">
                   <div>
                     <img src={qrCode} alt="qr code image" />
@@ -113,39 +113,39 @@ const Footer = () => {
                     </div>
                   </div>
                 </div>
-                <div class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-                  <a class="">
+                <div className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+                  <a className="">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
                       <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                     </svg>
                   </a>
-                  <a class="ml-3 ">
+                  <a className="ml-3 ">
                     <svg
                       fill="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
                       <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
                     </svg>
                   </a>
-                  <a class="ml-3 ">
+                  <a className="ml-3 ">
                     <svg
                       fill="none"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      class="w-5 h-5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
                       <rect
@@ -159,14 +159,14 @@ const Footer = () => {
                       <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                     </svg>
                   </a>
-                  <a class="ml-3 ">
+                  <a className="ml-3 ">
                     <svg
                       fill="currentColor"
                       stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="0"
-                      class="w-5 h-5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="0"
+                      className="w-5 h-5"
                       viewBox="0 0 24 24"
                     >
                       <path

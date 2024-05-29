@@ -5,13 +5,13 @@ import ContactUsForm from "../components/forms/ContactUsForm";
 
 const Contact = () => {
   return (
-    <section class="text-gray-600 body-font relative">
+    <section className="text-gray-600 body-font relative">
       <div
-        class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap"
+        className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap"
         bis_skin_checked="1"
       >
         <div
-          class="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full sm:mr-10 p-10 shadow-xl"
+          className="lg:w-1/3 md:w-1/2 bg-white flex flex-col md:ml-auto w-full sm:mr-10 p-10 shadow-xl"
           bis_skin_checked="1"
         >
           <div className="space-y-4">
@@ -50,7 +50,7 @@ const Contact = () => {
           </div>
         </div>
         <div
-          class="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden p-10 shadow-xl mt-8 md:mt-0"
+          className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden p-10 shadow-xl mt-8 md:mt-0"
           bis_skin_checked="1"
         >
           <ContactUsForm />

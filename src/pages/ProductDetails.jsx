@@ -20,7 +20,7 @@ const ProductDetails = () => {
     stock,
   } = product;
 
-  console.log(product);
+  console.log(productQuantity);
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -105,14 +105,19 @@ const ProductDetails = () => {
             <div className="flex" bis_skin_checked="1">
               <div className="flex items-center">
                 <button
-                  onClick={() => setProductQuantity(productQuantity - 1)}
+                  onClick={() =>
+                    setProductQuantity(productQuantity - 1 || 1
+                    )
+                  }
                   className="p-3 border btn hover:bg-red-500 hover:text-white"
                 >
                   <FaMinus className="text-xl" />
                 </button>
-                <span className="py-3 px-6">{productQuantity}</span>
+                <span className="py-3 px-6">
+                  {productQuantity > 0 ? productQuantity : 1}
+                </span>
                 <button
-                  onClick={() => setProductQuantity(productQuantity + 1)}
+                  onClick={() => setProductQuantity(productQuantity + 1 || 1)}
                   className="hover:bg-red-500 btn hover:text-white p-3"
                 >
                   <FaPlus className="text-xl" />

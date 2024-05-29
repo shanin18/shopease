@@ -1,10 +1,13 @@
-import { MdFavoriteBorder } from "react-icons/md";
+import Ratings from "../others/Ratings";
+import defaultImage from "../../assets/images/product/defaultImage.webp";
 import { useState } from "react";
+import { MdFavoriteBorder } from "react-icons/md";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosInformationCircle } from "react-icons/io";
-import Ratings from "../others/Ratings";
+import { FaRegEye } from "react-icons/fa";
 
 const ProductCard = ({ data, handleDelete }) => {
+  const [seeMore, setSeeMore] = useState(false);
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
   const location = useLocation().pathname.includes("all-products");
@@ -18,10 +21,18 @@ const ProductCard = ({ data, handleDelete }) => {
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={() => navigate(`/products/details/${id}`)}
+      className="flex flex-col justify-between"
     >
       <div className="relative overflow-hidden">
-        <img src={img} alt="" />
+        <img
+          src={img || defaultImage}
+          alt="product image"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = defaultImage;
+          }}
+        />
+
         <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
           -40%
         </p>
@@ -43,8 +54,16 @@ const ProductCard = ({ data, handleDelete }) => {
             </ul>
           </div>
         ) : (
-          <div className="bg-white rounded-full p-1 absolute top-1 right-1">
-            <MdFavoriteBorder className="text-xl cursor-pointer" />
+          <div className="absolute top-1 right-1 space-y-2">
+            <div className="bg-white rounded-full p-1 hover:bg-gray-100">
+              <MdFavoriteBorder className="md:text-lg lg:text-xl cursor-pointer" />
+            </div>
+            <div className="bg-white rounded-full p-1 hover:bg-gray-100">
+              <FaRegEye
+                onClick={() => navigate(`/products/details/${id}`)}
+                className="md:text-lg lg:text-xl cursor-pointer"
+              />
+            </div>
           </div>
         )}
 
@@ -60,7 +79,17 @@ const ProductCard = ({ data, handleDelete }) => {
         </div>
       </div>
       <div className="flex flex-col gap-2 mt-5">
-        <p className="font-medium">{name}</p>
+        {name?.length > 15 ? (
+          <p className="font-medium">
+            {seeMore ? name : name?.slice(0, 15)}{" "}
+            <span onClick={() => setSeeMore(!seeMore)} className="text-sm">
+              {!seeMore ? "..see more" : "...see less"}
+            </span>
+          </p>
+        ) : (
+          <p className="font-medium">{name}</p>
+        )}
+
         <p className="font-medium text-red-500">${price}</p>
         <div className="flex items-center gap-1">
           <Ratings ratings={ratings} />

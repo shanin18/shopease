@@ -15,6 +15,7 @@ const LoginForm = () => {
     const email = form.email.value;
     const password = form.password.value;
     await signIn(email, password);
+    
   };
 
   useEffect(() => {
@@ -39,7 +40,7 @@ const LoginForm = () => {
           <input
             type="text"
             name="email"
-            className="outline:none"
+            className="outline:none w-full"
             placeholder="Email"
           />
         </label>
@@ -59,7 +60,7 @@ const LoginForm = () => {
           <input
             type="password"
             name="password"
-            className="outline:none"
+            className="outline:none w-full"
             placeholder="Password"
           />
         </label>
