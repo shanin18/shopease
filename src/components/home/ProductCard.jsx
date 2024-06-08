@@ -11,7 +11,7 @@ const ProductCard = ({ data, handleDelete }) => {
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
   const location = useLocation().pathname.includes("all-products");
-  const { id, name, img, price, ratings, ratingsCount } = data;
+  const { _id, name, img, price, ratings, ratingsCount } = data;
 
   const handleAddToCart = () => {
     console.log("hello");
@@ -46,10 +46,10 @@ const ProductCard = ({ data, handleDelete }) => {
               className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to={`/dashboard/edit-products/${id}`}>Edit</Link>
+                <Link to={`/dashboard/edit-products/${_id}`}>Edit</Link>
               </li>
               <li>
-                <button onClick={() => handleDelete(id)}>Delete</button>
+                <button onClick={() => handleDelete(_id)}>Delete</button>
               </li>
             </ul>
           </div>
@@ -60,7 +60,7 @@ const ProductCard = ({ data, handleDelete }) => {
             </div>
             <div className="bg-white rounded-full p-1 hover:bg-gray-100">
               <FaRegEye
-                onClick={() => navigate(`/products/details/${id}`)}
+                onClick={() => navigate(`/products/details/${_id}`)}
                 className="md:text-lg lg:text-xl cursor-pointer"
               />
             </div>

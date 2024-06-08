@@ -15,7 +15,6 @@ const Navbar = () => {
     await logout();
   };
 
-  console.log(user);
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   return (
     <nav className="border-b  relative">

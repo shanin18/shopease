@@ -6,9 +6,14 @@ import Categories from "../components/home/Categories";
 import FlashSales from "../components/home/FlashSales";
 import NewArrival from "../components/home/NewArrival";
 import Services from "../components/home/Services";
+import getAllProducts from "../lib/getAllProducts";
 
 const Home = () => {
-  const data = useLoaderData();
+  const data = getAllProducts();
+
+  if (!data) {
+    return <span>loading...</span>;
+  }
 
   return (
     <div className="container mx-auto space-y-10 md:space-y-16">

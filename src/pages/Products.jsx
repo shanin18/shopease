@@ -1,10 +1,10 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import ProductCard from "../components/home/ProductCard";
+import getAllProducts from "../lib/getAllProducts";
 
 const Products = () => {
-  const products = useLoaderData();
+  const products = getAllProducts();
   if (!products) {
     return <LoadingSpinner />;
   }

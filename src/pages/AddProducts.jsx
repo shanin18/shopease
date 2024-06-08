@@ -43,7 +43,7 @@ const AddProducts = () => {
       confirmButtonText: "Yes, add it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/products`, {
+        fetch(`https://shopease-server.vercel.app/products`, {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -97,7 +97,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="name" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="name"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Name
                 </label>
                 <input
@@ -111,7 +114,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="quantity" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="quantity"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Quantity
                 </label>
                 <input
@@ -125,7 +131,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="category" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="category"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Category
                 </label>
                 <input
@@ -139,7 +148,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="seller" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="seller"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Seller
                 </label>
                 <input
@@ -153,7 +165,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="price" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="price"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Price
                 </label>
                 <input
@@ -167,7 +182,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="stock" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="stock"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Stock
                 </label>
                 <input
@@ -182,7 +200,10 @@ const AddProducts = () => {
 
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="ratings" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="ratings"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   ratings
                 </label>
                 <input
@@ -213,7 +234,10 @@ const AddProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="shipping" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="shipping"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Shipping
                 </label>
                 <input
@@ -228,7 +252,10 @@ const AddProducts = () => {
 
             <div className="p-2 w-full" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="image" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="image"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Image URL
                 </label>
                 <input

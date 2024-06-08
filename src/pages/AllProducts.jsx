@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/home/ProductCard";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
+import getAllProducts from "../lib/getAllProducts";
 
 const AllProducts = () => {
-  const [products, setProducts] = useState(false);
+  const products =getAllProducts()
 
-  useEffect(() => {
-    fetch("http://localhost:3000/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  if(!products){
+    return <span>loading...</span>
+  }
+
 
   // delete products
   const handleDelete = (id) => {
@@ -22,8 +23,8 @@ const AllProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        const leftProducts = products?.filter((product) => product.id !== id);
-        setProducts(leftProducts);
+        // const leftProducts = products?.filter((product) => product.id !== id);
+        // setProducts(leftProducts);
         Swal.fire({
           title: "Deleted!",
           text: "Product has been deleted.",

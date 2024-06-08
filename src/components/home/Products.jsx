@@ -43,10 +43,14 @@ const Products = ({ data }) => {
     ],
   };
 
+  if (!data) {
+    return <span>loading...</span>;
+  }
+  
   return (
     <div>
       <Slider {...settings}>
-        {data.map((item, index) => (
+        {data?.map((item, index) => (
           <div key={index} className="px-3">
             <ProductCard data={item} />
           </div>

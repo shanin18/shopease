@@ -1,26 +1,14 @@
 import React, { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Ratings from "../components/others/Ratings";
 import { FaMinus, FaPlus } from "react-icons/fa6";
+import getProductDetailsById from "../lib/getProductDetailsById";
 
 const ProductDetails = () => {
   const [productQuantity, setProductQuantity] = useState(1);
-  const product = useLoaderData();
-  const {
-    category,
-    id,
-    img,
-    name,
-    price,
-    quantity,
-    ratings,
-    ratingsCount,
-    seller,
-    shipping,
-    stock,
-  } = product;
-
-  console.log(productQuantity);
+  const id = useParams();
+  const product = getProductDetailsById(id);
+  const { img, name, price, ratings, ratingsCount, stock } = product;
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -105,10 +93,7 @@ const ProductDetails = () => {
             <div className="flex" bis_skin_checked="1">
               <div className="flex items-center">
                 <button
-                  onClick={() =>
-                    setProductQuantity(productQuantity - 1 || 1
-                    )
-                  }
+                  onClick={() => setProductQuantity(productQuantity - 1 || 1)}
                   className="p-3 border btn hover:bg-red-500 hover:text-white"
                 >
                   <FaMinus className="text-xl" />

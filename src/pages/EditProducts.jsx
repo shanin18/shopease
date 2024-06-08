@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import getProductDetailsById from "../lib/getProductDetailsById";
 
 const EditProducts = () => {
   const { id } = useParams();
-  const navigate = useNavigate()
-  const [product, setProduct] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/products/${id}`)
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, []);
+  const navigate = useNavigate();
+  const product = getProductDetailsById(id)
+  console.log(product)
 
   const handleEditForm = (e) => {
     e.preventDefault();
@@ -46,7 +41,7 @@ const EditProducts = () => {
       confirmButtonText: "Yes, Edit it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/products/${id}`, {
+        fetch(`https://shopease-server.vercel.app/update-product/${id}`, {
           method: "PATCH",
           headers: {
             "Content-type": "application/json",
