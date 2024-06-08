@@ -1,13 +1,18 @@
 import React, { useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Ratings from "../components/others/Ratings";
 import { FaMinus, FaPlus } from "react-icons/fa6";
-import getProductDetailsById from "../lib/getProductDetailsById";
+import LoadingSpinner from "../components/others/LoadingSpinner";
+import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 
 const ProductDetails = () => {
   const [productQuantity, setProductQuantity] = useState(1);
-  const id = useParams();
-  const product = getProductDetailsById(id);
+  const { id } = useParams();
+  const { isLoading, error, data: product } = useGetProductDetailsById(id);
+
+  if (isLoading) return <LoadingSpinner />;
+  if (error) return <p>An error occurred: {error.message}</p>;
+
   const { img, name, price, ratings, ratingsCount, stock } = product;
 
   return (

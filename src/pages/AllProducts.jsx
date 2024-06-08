@@ -1,16 +1,12 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../components/home/ProductCard";
 import Swal from "sweetalert2";
-import { useLoaderData } from "react-router-dom";
-import getAllProducts from "../lib/getAllProducts";
+import useGetAllProducts from "../hooks/useGetAllProducts";
 
 const AllProducts = () => {
-  const products =getAllProducts()
+  const { isLoading, error, data:products } = useGetAllProducts();
 
-  if(!products){
-    return <span>loading...</span>
-  }
-
+  if (isLoading) return <LoadingSpinner />;
 
   // delete products
   const handleDelete = (id) => {
@@ -33,10 +29,6 @@ const AllProducts = () => {
       }
     });
   };
-
-  if (!products) {
-    return <p>loading...</p>;
-  }
 
   return (
     <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 h-screen overflow-y-scroll">

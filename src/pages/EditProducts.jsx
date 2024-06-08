@@ -1,12 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import getProductDetailsById from "../lib/getProductDetailsById";
+import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 
 const EditProducts = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const product = getProductDetailsById(id)
-  console.log(product)
+  const { isLoading, data: product } = useGetProductDetailsById(id);
+
+  if (isLoading) return <LoadingSpinner />;
 
   const handleEditForm = (e) => {
     e.preventDefault();
