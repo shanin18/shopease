@@ -21,7 +21,7 @@ const ProductDetails = () => {
         <div className="lg:w-4/5 mx-auto flex flex-wrap" bis_skin_checked="1">
           <img
             alt="product image"
-            className="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+            className="lg:w-1/2 w-full lg:h-auto h-80 object-cover object-center rounded"
             src={img}
           />
           <div

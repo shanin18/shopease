@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 .active {
-    @apply mr-5 hover:text-gray-900 bg-gray-100 w-full py-3 px-5
+    @apply mr-5 font-medium hover:text-gray-900 bg-gray-100 w-full py-3 px-5
 }
 
 .inactive {
-    @apply mr-5 hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5
+    @apply mr-5 font-medium hover:text-gray-900 hover:bg-gray-100 w-full py-3 px-5
 }
 
 .active2 {

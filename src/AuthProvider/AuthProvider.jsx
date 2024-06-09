@@ -1,11 +1,12 @@
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateEmail,
+  updatePassword,
   updateProfile,
 } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
@@ -23,25 +24,31 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  const signIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const googleLogin = () => {
+    return signInWithPopup(auth, googleProvider);
+  };
+
   const updateUserProfile = (name, image) => {
-    const auth = getAuth();
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: image,
     });
   };
 
-  const signIn = (email, password) => {
-    setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+  const updateUserEmail = (newEmail) => {
+    return updateEmail(auth.currentUser, newEmail);
+  };
+  const updateUserPassword = (newPassword) => {
+    return updatePassword(auth.currentUser, newPassword);
   };
 
-  const logout = () => {
+  const logout = async () => {
     return signOut(auth).then(() => setUser(null));
-  };
-
-  const googleLogin = () => {
-    return signInWithPopup(auth, googleProvider);
   };
 
   useEffect(() => {
@@ -63,6 +70,8 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     createUser,
     updateUserProfile,
+    updateUserEmail,
+    updateUserPassword,
     signIn,
     logout,
     loading,

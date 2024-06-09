@@ -9,7 +9,8 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const location = useLocation().pathname.includes("signup");
+  const location = useLocation();
+  const signup = location.pathname.includes("signup");
   const { logout, user } = useAuth();
 
   const handleLogout = async () => {
@@ -50,7 +51,7 @@ const Navbar = () => {
             </NavLink>
             {!user?.email && (
               <span>
-                {location ? (
+                {signup ? (
                   <NavLink to="/auth/signup" className={getClassNames2}>
                     Sign Up
                   </NavLink>
@@ -101,7 +102,7 @@ const Navbar = () => {
                   className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <Link to="#" className="justify-between">
+                    <Link to="/profile" className="justify-between">
                       Profile
                     </Link>
                   </li>
@@ -162,7 +163,7 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <Link to="#" className="justify-between">
+                  <Link to="/profile" className="justify-between">
                     Profile
                   </Link>
                 </li>
@@ -220,7 +221,7 @@ const Navbar = () => {
             >
               About
             </NavLink>
-            {!user?.email && location && (
+            {!user?.email && signup && (
               <NavLink
                 to="/auth/signup"
                 className={getClassNames}
@@ -230,7 +231,7 @@ const Navbar = () => {
               </NavLink>
             )}
 
-            {!user?.email && !location && (
+            {!user?.email && !signup && (
               <NavLink
                 to="/auth/login"
                 className={getClassNames}

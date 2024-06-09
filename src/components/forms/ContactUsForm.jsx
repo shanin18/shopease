@@ -7,7 +7,7 @@ const ContactUsForm = () => {
   };
   
   return (
-    <form onClick={handleContactForm} className="space-y-8">
+    <form onSubmit={handleContactForm} className="space-y-8">
       <div className="flex flex-wrap gap-5">
         <input
           type="text"
