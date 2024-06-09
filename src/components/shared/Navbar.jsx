@@ -5,6 +5,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -13,6 +14,12 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await logout();
+    Swal.fire({
+      title: "Logout Successfully!",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500,
+    });
   };
 
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");

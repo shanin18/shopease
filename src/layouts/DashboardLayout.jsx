@@ -47,20 +47,19 @@ const DashboardLayout = () => {
               </button>
             </div>
             <div className="flex flex-col">
-              <NavLink to="/" className={getClassNames} onClick={() => setSidebarOpen(false)}>
+              <NavLink to="/" className={getClassNames}>
                 Home
               </NavLink>
-              <NavLink to="/dashboard/all-products" className={getClassNames} onClick={() => setSidebarOpen(false)}>
+              <NavLink to="/dashboard/all-products" className={getClassNames}>
                 All Products
               </NavLink>
-              <NavLink to="/dashboard/add-products" className={getClassNames} onClick={() => setSidebarOpen(false)}>
+              <NavLink to="/dashboard/add-products" className={getClassNames}>
                 Add Products
               </NavLink>
               {location && (
                 <NavLink
                   to="/dashboard/edit-products"
                   className={getClassNames}
-                  onClick={() => setSidebarOpen(false)}
                 >
                   Edit Products
                 </NavLink>

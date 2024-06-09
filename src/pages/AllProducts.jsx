@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductCard from "../components/home/ProductCard";
 import Swal from "sweetalert2";
 import useGetAllProducts from "../hooks/useGetAllProducts";
+import LoadingSpinner from "../components/others/LoadingSpinner";
+import useDeleteProduct from "../hooks/useDeleteProduct";
 
 const AllProducts = () => {
-  const { isLoading, error, data:products } = useGetAllProducts();
+  const { isLoading, error, data: products } = useGetAllProducts();
+  const { mutate: deleteProduct } = useDeleteProduct();
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -19,13 +22,7 @@ const AllProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // const leftProducts = products?.filter((product) => product.id !== id);
-        // setProducts(leftProducts);
-        Swal.fire({
-          title: "Deleted!",
-          text: "Product has been deleted.",
-          icon: "success",
-        });
+        deleteProduct(id);
       }
     });
   };

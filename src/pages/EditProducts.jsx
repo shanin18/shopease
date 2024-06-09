@@ -1,11 +1,13 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
+import LoadingSpinner from "../components/others/LoadingSpinner";
+import useUpdateProduct from "../hooks/useUpdateProduct";
 
 const EditProducts = () => {
   const { id } = useParams();
-  const navigate = useNavigate();
   const { isLoading, data: product } = useGetProductDetailsById(id);
+  const { mutate: updateProduct } = useUpdateProduct();
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -21,7 +23,7 @@ const EditProducts = () => {
     const shipping = product.shipping;
     const ratingsCount = product.ratingsCount;
     const quantity = product.quantity;
-    const data = {
+    const updatedProduct = {
       id,
       name,
       seller,
@@ -42,23 +44,7 @@ const EditProducts = () => {
       confirmButtonText: "Yes, Edit it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://shopease-server.vercel.app/update-product/${id}`, {
-          method: "PATCH",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }).then((data) => {
-          if (data?.ok) {
-            Swal.fire({
-              title: "Edited!",
-              text: "Product has been edited.",
-              icon: "success",
-            });
-            form.reset();
-            navigate("/dashboard/all-products")
-          }
-        });
+        updateProduct({ id, updatedProduct });
       }
     });
   };
@@ -82,7 +68,10 @@ const EditProducts = () => {
           <div className="flex flex-wrap -m-2" bis_skin_checked="1">
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="name" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="name"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Name
                 </label>
                 <input
@@ -96,7 +85,10 @@ const EditProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="category" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="category"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Category
                 </label>
                 <input
@@ -110,7 +102,10 @@ const EditProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="seller" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="seller"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Seller
                 </label>
                 <input
@@ -124,7 +119,10 @@ const EditProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="price" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="price"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Price
                 </label>
                 <input
@@ -138,7 +136,10 @@ const EditProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="image" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="image"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   Image URL
                 </label>
                 <input
@@ -152,7 +153,10 @@ const EditProducts = () => {
             </div>
             <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
               <div className="relative" bis_skin_checked="1">
-                <label htmlFor="ratings" className="leading-7 text-sm text-gray-600">
+                <label
+                  htmlFor="ratings"
+                  className="leading-7 text-sm text-gray-600"
+                >
                   ratings
                 </label>
                 <input

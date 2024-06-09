@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 const LoginForm = () => {
   const { signIn, user } = useAuth();
   const navigate = useNavigate();
@@ -15,11 +16,16 @@ const LoginForm = () => {
     const email = form.email.value;
     const password = form.password.value;
     await signIn(email, password);
-    
   };
 
   useEffect(() => {
     if (user) {
+      Swal.fire({
+        title: "Login Successfully!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       navigate(from, { replace: true });
     }
   }, [user, from, navigate]);

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import googleImage from "../../assets/images/login/google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const SignUpForm = () => {
   const [passMatch, setPassMatch] = useState(true);
@@ -28,18 +29,24 @@ const SignUpForm = () => {
     if (password === confirm_password) {
       await createUser(email, password);
       await updateUserProfile(name, image);
-      if (user?.displayName) {
-        navigate(from, { replace: true });
-      }
     }
   };
 
   const handleGoogleSignIn = async () => {
     await googleLogin();
-    if (user?.displayName) {
+  };
+
+  useEffect(() => {
+    if (user) {
+      Swal.fire({
+        title: "Sign Up Successfully!",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       navigate(from, { replace: true });
     }
-  };
+  }, [user, from, navigate]);
 
   return (
     <div>
