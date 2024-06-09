@@ -7,8 +7,10 @@ import NewArrival from "../components/home/NewArrival";
 import Services from "../components/home/Services";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useGetAllProducts from "../hooks/useGetAllProducts";
+import useTitle from "../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Home")
   const { isLoading, error, data } = useGetAllProducts();
 
   if (isLoading) return <LoadingSpinner />;

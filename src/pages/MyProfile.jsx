@@ -1,8 +1,9 @@
 import React from "react";
 import UpdateProfileForm from "../components/forms/UpdateProfileForm";
+import useTitle from "../hooks/useTitle";
 
 const MyProfile = () => {
-
+  useTitle("Profile");
   return (
     <section className="text-gray-600 body-font relative container mx-auto px-5 md:px-0">
       <h1 className="text-gray-900 text-3xl lg:text-4xl title-font font-bold text-center my-8">

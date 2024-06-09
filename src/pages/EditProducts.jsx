@@ -3,8 +3,10 @@ import Swal from "sweetalert2";
 import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useUpdateProduct from "../hooks/useUpdateProduct";
+import useTitle from "../hooks/useTitle";
 
 const EditProducts = () => {
+  useTitle("Edit Product");
   const { id } = useParams();
   const { isLoading, data: product } = useGetProductDetailsById(id);
   const { mutate: updateProduct } = useUpdateProduct();

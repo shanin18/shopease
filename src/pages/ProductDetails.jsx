@@ -4,9 +4,11 @@ import Ratings from "../components/others/Ratings";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
+import useTitle from "../hooks/useTitle";
 
 const ProductDetails = () => {
   const [productQuantity, setProductQuantity] = useState(1);
+  useTitle("Details");
   const { id } = useParams();
   const { isLoading, error, data: product } = useGetProductDetailsById(id);
 

@@ -1,8 +1,11 @@
 import image from "../assets/images/about/about2.png";
 import OurTeamMembers from "../components/about/OurTeamMembers";
 import Services from "../components/home/Services";
+import useTitle from "../hooks/useTitle";
 
 const About = () => {
+  useTitle("About")
+
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto" bis_skin_checked="1">

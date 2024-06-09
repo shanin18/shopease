@@ -2,8 +2,10 @@ import React from "react";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import ProductCard from "../components/home/ProductCard";
 import useGetAllProducts from "../hooks/useGetAllProducts";
+import useTitle from "../hooks/useTitle";
 
 const Products = () => {
+  useTitle("Products")
   const { isLoading, error, data: products } = useGetAllProducts();
 
   if (isLoading) return <LoadingSpinner />;

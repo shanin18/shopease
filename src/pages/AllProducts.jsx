@@ -4,9 +4,12 @@ import Swal from "sweetalert2";
 import useGetAllProducts from "../hooks/useGetAllProducts";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useDeleteProduct from "../hooks/useDeleteProduct";
+import useTitle from "../hooks/useTitle";
 
 const AllProducts = () => {
-  const { isLoading, error, data: products } = useGetAllProducts();
+  useTitle("All Products")
+
+  const { isLoading, data: products } = useGetAllProducts();
   const { mutate: deleteProduct } = useDeleteProduct();
 
   if (isLoading) return <LoadingSpinner />;

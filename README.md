@@ -52,7 +52,7 @@ ShopEase is an innovative eCommerce platform designed to simplify online shoppin
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- <a href="https://worknest-rose.vercel.app/">Live Demo</a>
+- <a href="https://shopease-gamma.vercel.app/">Live Demo</a>
 
 <!-- GETTING STARTED -->
 

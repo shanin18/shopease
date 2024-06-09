@@ -2,8 +2,11 @@ import React from "react";
 import TelephoneSVG from "../svgs/TelephoneSVG";
 import EmailSVG from "../svgs/EmailSVG";
 import ContactUsForm from "../components/forms/ContactUsForm";
+import useTitle from "../hooks/useTitle";
 
 const Contact = () => {
+  useTitle("Contact Us")
+
   return (
     <section className="text-gray-600 body-font relative">
       <h1 className="text-gray-900 text-3xl lg:text-4xl title-font font-bold mb-8 text-center mt-8">

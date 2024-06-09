@@ -1,6 +1,8 @@
 import AddProductForm from "../components/forms/AddProductForm";
+import useTitle from "../hooks/useTitle";
 
 const AddProducts = () => {
+  useTitle("Add Product")
   return (
     <section className="text-gray-600 body-font relative h-screen overflow-y-scroll">
       <div className="container px-5 py-24 mx-auto" bis_skin_checked="1">
