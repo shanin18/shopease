@@ -6,8 +6,11 @@ import ContactUsForm from "../components/forms/ContactUsForm";
 const Contact = () => {
   return (
     <section className="text-gray-600 body-font relative">
+      <h1 className="text-gray-900 text-3xl lg:text-4xl title-font font-bold mb-8 text-center mt-8">
+        Contact Us
+      </h1>
       <div
-        className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap"
+        className="container px-5 pb-24 pt-8 mx-auto flex sm:flex-nowrap flex-wrap"
         bis_skin_checked="1"
       >
         <div

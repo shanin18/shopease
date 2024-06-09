@@ -42,10 +42,6 @@ const Products = ({ data }) => {
       },
     ],
   };
-
-  if (!data) {
-    return <span>loading...</span>;
-  }
   
   return (
     <div>

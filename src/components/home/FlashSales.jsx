@@ -8,7 +8,7 @@ const FlashSales = ({ data }) => {
     <section>
       <div className="flex flex-wrap items-end justify-between gap-4 mb-5 p-5 md:p-0">
         <SectionHeader category="Today's" title="Flash Sales" />
-        <Countdown />
+        <Countdown targetDate="2024-06-11T23:59:59" color="black" />
       </div>
       <Products data={data} />
       <div className="text-center mb-12 mt-8">

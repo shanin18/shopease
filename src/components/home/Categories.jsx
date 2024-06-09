@@ -21,12 +21,12 @@ const Categories = () => {
     <section className="p-5 md:p-0">
       <SectionHeader category="Categories" title="Browse By Category" />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4 mt-8">
-        {categories?.map((category) => (
+        {categories.map((category) => (
           <div
             key={category.name}
-            className="border rounded flex flex-col items-center justify-center p-4 hover:bg-red-500 hover:text-white duration-200"
+            className="border rounded flex flex-col items-center justify-center p-4 hover:bg-red-500 hover:text-white transition duration-200"
           >
-            <div className="">{category.icon}</div>
+            <div className="hover:text-white">{category.icon}</div>
             <p className="sm:text-lg font-semibold">{category.name}</p>
           </div>
         ))}

@@ -1,20 +1,25 @@
-import Ratings from "../others/Ratings";
-import defaultImage from "../../assets/images/product/defaultImage.webp";
-import { useState } from "react";
+import React, { useState } from "react";
 import { MdFavoriteBorder } from "react-icons/md";
-import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosInformationCircle } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Ratings from "../others/Ratings";
+import defaultImage from "../../assets/images/product/defaultImage.webp";
 
-const ProductCard = ({ data, handleDelete }) => {
+const ProductCard = React.memo(({ data, handleDelete }) => {
   const [seeMore, setSeeMore] = useState(false);
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation().pathname.includes("all-products");
+  const isAllProductsPage = useLocation().pathname.includes("all-products");
   const { _id, name, img, price, ratings, ratingsCount } = data;
 
   const handleAddToCart = () => {
-    console.log("hello");
+    console.log("Added to cart");
+  };
+
+  const handleImageError = (e) => {
+    e.target.onerror = null;
+    e.target.src = defaultImage;
   };
 
   return (
@@ -26,17 +31,16 @@ const ProductCard = ({ data, handleDelete }) => {
       <div className="relative overflow-hidden">
         <img
           src={img || defaultImage}
-          alt="product image"
-          onError={(e) => {
-            e.target.onerror = null;
-            e.target.src = defaultImage;
-          }}
+          alt={name || "Product Image"}
+          onError={handleImageError}
+          className="w-full"
         />
 
         <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
           -40%
         </p>
-        {location ? (
+
+        {isAllProductsPage ? (
           <div className="rounded-full p-1 absolute top-1 right-1 dropdown dropdown-end">
             <div className="p-1" tabIndex={0} role="button">
               <IoIosInformationCircle className="text-2xl" />
@@ -54,37 +58,43 @@ const ProductCard = ({ data, handleDelete }) => {
             </ul>
           </div>
         ) : (
-          <div className="absolute top-1 right-1 space-y-2">
-            <div className="bg-white rounded-full p-1 hover:bg-gray-100">
+          <div className="absolute top-1 right-1 space-x-2">
+            <button className="bg-white rounded-full p-1 hover:bg-gray-100" aria-label="Add to Favorites">
               <MdFavoriteBorder className="md:text-lg lg:text-xl cursor-pointer" />
-            </div>
-            <div className="bg-white rounded-full p-1 hover:bg-gray-100">
-              <FaRegEye
-                onClick={() => navigate(`/products/details/${_id}`)}
-                className="md:text-lg lg:text-xl cursor-pointer"
-              />
-            </div>
+            </button>
+            <button
+              className="bg-white rounded-full p-1 hover:bg-gray-100"
+              onClick={() => navigate(`/products/details/${_id}`)}
+              aria-label="View Details"
+            >
+              <FaRegEye className="md:text-lg lg:text-xl cursor-pointer" />
+            </button>
           </div>
         )}
 
-        <div>
-          <p
+        {!isAllProductsPage && (
+          <button
             onClick={handleAddToCart}
             className={`text-white font-semibold bg-black text-center absolute w-full py-2 duration-200 cursor-pointer ${
-              hover ? "bottom-0" : " -bottom-10"
+              hover ? "bottom-0" : "-bottom-10"
             }`}
           >
             Add To Cart
-          </p>
-        </div>
+          </button>
+        )}
       </div>
+
       <div className="flex flex-col gap-2 mt-5">
         {name?.length > 15 ? (
           <p className="font-medium">
             {seeMore ? name : name?.slice(0, 15)}{" "}
-            <span onClick={() => setSeeMore(!seeMore)} className="text-sm">
+            <button
+              onClick={() => setSeeMore(!seeMore)}
+              className="text-sm text-blue-500"
+              aria-label={seeMore ? "See less" : "See more"}
+            >
               {!seeMore ? "..see more" : "...see less"}
-            </span>
+            </button>
           </p>
         ) : (
           <p className="font-medium">{name}</p>
@@ -98,6 +108,6 @@ const ProductCard = ({ data, handleDelete }) => {
       </div>
     </div>
   );
-};
+});
 
 export default ProductCard;
