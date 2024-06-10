@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CiSearch, CiShoppingCart } from "react-icons/ci";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { MdFavoriteBorder } from "react-icons/md";
@@ -6,12 +6,14 @@ import { RxCross1 } from "react-icons/rx";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useCart } from "../../AuthProvider/CartProvider";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const signup = location.pathname.includes("signup");
   const { logout, user } = useAuth();
+  const { cart, addSearchText } = useCart();
 
   const handleLogout = async () => {
     await logout();
@@ -26,11 +28,16 @@ const Navbar = () => {
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   const getClassNames2 = ({ isActive }) => (isActive ? "active2" : "inactive2");
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    addSearchText(e.target.value);
+  };
+
   return (
     <nav className="border-b relative">
       <div className="container mx-auto">
         <div
-          className="flex flex-wrap p-5 items-center justify-between"
+          className="flex flex-wrap p-5 lg:px-0 items-center justify-between"
           bis_skin_checked="1"
         >
           <Link to="/">
@@ -69,16 +76,27 @@ const Navbar = () => {
             )}
           </div>
           <div className="md:flex items-center gap-6 hidden">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="border pl-3 pr-8 py-2 rounded bg-gray-200 w-full text-sm outline-none"
-              />
-              <CiSearch className="absolute text-xl top-2 right-2" />
-            </div>
+            {location.pathname === "/products" && (
+              <div className="relative">
+                <input
+                  onChange={handleSearch}
+                  type="text"
+                  placeholder="Search"
+                  className="border pl-3 pr-8 py-2 rounded bg-gray-200 w-full text-sm outline-none"
+                />
+                <CiSearch className="absolute text-xl top-2 right-2" />
+              </div>
+            )}
+
             {user?.email && <MdFavoriteBorder className="text-2xl" />}
-            {user?.email && <CiShoppingCart className="text-3xl" />}
+            {user?.email && (
+              <div className="relative">
+                <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
+                  {cart?.length}
+                </span>
+                <CiShoppingCart className="text-3xl" />
+              </div>
+            )}
 
             {user?.email && (
               <div className="dropdown dropdown-end">
@@ -119,14 +137,17 @@ const Navbar = () => {
           </button>
         </div>
         <div className="flex items-center justify-end gap-6 p-5 pt-0 md:hidden">
-          <div className="relative flex-1">
-            <input
-              type="text"
-              placeholder="Search"
-              className="border pl-3 pr-8 py-2 rounded bg-gray-200 w-full text-sm outline-none"
-            />
-            <CiSearch className="absolute text-xl top-2 right-2" />
-          </div>
+          {location.pathname === "/products" && (
+            <div className="relative">
+              <input
+                onChange={handleSearch}
+                type="text"
+                placeholder="Search"
+                className="border pl-3 pr-8 py-2 rounded bg-gray-200 w-full text-sm outline-none"
+              />
+              <CiSearch className="absolute text-xl top-2 right-2" />
+            </div>
+          )}
           {user?.email && (
             <div>
               {" "}
@@ -134,7 +155,10 @@ const Navbar = () => {
             </div>
           )}
           {user?.email && (
-            <div>
+            <div className="relative">
+              <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
+                {cart?.length}
+              </span>
               <CiShoppingCart className="text-3xl" />
             </div>
           )}

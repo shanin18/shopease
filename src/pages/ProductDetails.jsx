@@ -8,6 +8,8 @@ import useTitle from "../hooks/useTitle";
 
 const ProductDetails = () => {
   const [productQuantity, setProductQuantity] = useState(1);
+  const [size, setSize] = useState("l");
+  const [color, setColor] = useState("black");
   useTitle("Details");
   const { id } = useParams();
   const { isLoading, error, data: product } = useGetProductDetailsById(id);
@@ -17,7 +19,6 @@ const ProductDetails = () => {
 
   const { img, name, price, ratings, ratingsCount, stock, description } =
     product;
-
   return (
     <section className="text-gray-600 body-font overflow-hidden">
       <div className="container px-5 py-24 mx-auto" bis_skin_checked="1">
@@ -58,37 +59,67 @@ const ProductDetails = () => {
             <p className="leading-relaxed">{description}</p>
 
             <div
-              className="flex mt-6 items-center pt-5 border-t-2 border-gray-100 mb-5"
+              className="flex flex-col mt-6 pt-5 border-t-2 mb-8 gap-5"
               bis_skin_checked="1"
             >
               <div className="flex" bis_skin_checked="1">
                 <span className="mr-3">Colors: </span>
-                <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                <button className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                <button
+                  onClick={() => setColor("white")}
+                  className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"
+                ></button>
+                <button
+                  onClick={() => setColor("black")}
+                  className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"
+                ></button>
+                <button
+                  onClick={() => setColor("indigo")}
+                  className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"
+                ></button>
               </div>
-              <div className="flex ml-6 items-center" bis_skin_checked="1">
-                <span className="mr-3">Size</span>
-                <div className="relative" bis_skin_checked="1">
-                  <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-indigo-500 text-base pl-3 pr-10">
-                    <option>SM</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                  </select>
-                  <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                    <svg
-                      fill="none"
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      className="w-4 h-4"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M6 9l6 6 6-6"></path>
-                    </svg>
-                  </span>
+              <div className="flex items-center" bis_skin_checked="1">
+                <span className="mr-3">Size: </span>
+                <div className="flex flex-wrap items-center gap-4">
+                  <button
+                    onClick={() => setSize("sm")}
+                    className={`w-11 h-6 border btn hover:bg-red-500 hover:text-white ${
+                      size === "sm"
+                        ? "bg-red-500 text-white"
+                        : "bg-white text-gray-800"
+                    }`}
+                  >
+                    SM
+                  </button>
+                  <button
+                    onClick={() => setSize("m")}
+                    className={`w-11 h-6 border btn hover:bg-red-500 hover:text-white ${
+                      size === "m"
+                        ? "bg-red-500 text-white"
+                        : "bg-white text-gray-800"
+                    }`}
+                  >
+                    M
+                  </button>
+                  <button
+                    onClick={() => setSize("l")}
+                    className={`w-11 h-6 border btn hover:bg-red-500 hover:text-white ${
+                      size === "l"
+                        ? "bg-red-500 text-white"
+                        : "bg-white text-gray-800"
+                    }`}
+                  >
+                    L
+                  </button>
+                  <button
+                    onClick={() => setSize("xl")}
+                    className={`w-11 h-6 border btn hover:bg-red-500 hover:text-white ${
+                      size === "xl"
+                        ? "bg-red-500 text-white"
+                        : "bg-white text-gray-800"
+                    }`}
+                  >
+                    XL
+                  </button>
                 </div>
               </div>
             </div>
@@ -111,7 +142,7 @@ const ProductDetails = () => {
                 </button>
               </div>
 
-              <button className="flex ml-auto btn text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded">
+              <button className="flex ml-auto btn text-white text-lg bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded">
                 Buy Now
               </button>
             </div>

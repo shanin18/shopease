@@ -1,20 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoIosInformationCircle } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Ratings from "../others/Ratings";
 import defaultImage from "../../assets/images/product/defaultImage.webp";
+import { useCart } from "../../AuthProvider/CartProvider";
 
 const ProductCard = React.memo(({ data, handleDelete }) => {
   const [seeMore, setSeeMore] = useState(false);
   const [hover, setHover] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
+  const { cart, addToCart } = useCart();
+
   const isAllProductsPage = useLocation().pathname.includes("all-products");
   const { _id, name, img, price, ratings, ratingsCount, discount } = data;
 
   const handleAddToCart = () => {
-    console.log("Added to cart");
+    const item = { _id, name, img, price, discount };
+    const itemExists = cart.some((cartItem) => cartItem._id === item._id);
+    if (!itemExists) {
+      addToCart(item);
+    } else {
+      alert("Item already in the cart");
+    }
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
   };
 
   const handleImageError = (e) => {
@@ -29,9 +43,11 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
       className="flex flex-col justify-between"
     >
       <div className="relative overflow-hidden">
+        {isLoading && <div className="h-60 w-full skeleton"></div>}
         <img
           src={img || defaultImage}
           alt={name || "Product Image"}
+          onLoad={handleImageLoad}
           onError={handleImageError}
           className="w-full"
           loading="lazy"
@@ -108,7 +124,7 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
         <p className="font-medium text-red-500">${price}</p>
         <div className="flex items-center gap-1">
           <Ratings ratings={ratings} />
-          <span className="text-xs font-semibold">({ratingsCount})</span>
+          <span className="text-xs font-semibold mb-1.5">({ratingsCount})</span>
         </div>
       </div>
     </div>
