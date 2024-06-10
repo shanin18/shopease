@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Ratings from "../components/others/Ratings";
-import { FaMinus, FaPlus } from "react-icons/fa6";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 import useTitle from "../hooks/useTitle";
 
 const ProductDetails = () => {
-  const [productQuantity, setProductQuantity] = useState(1);
   const [size, setSize] = useState("l");
   const [color, setColor] = useState("black");
   useTitle("Details");
@@ -124,24 +122,6 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex" bis_skin_checked="1">
-              <div className="flex items-center">
-                <button
-                  onClick={() => setProductQuantity(productQuantity - 1 || 1)}
-                  className="p-3 border btn hover:bg-red-500 hover:text-white"
-                >
-                  <FaMinus className="text-xl" />
-                </button>
-                <span className="py-3 px-6">
-                  {productQuantity > 0 ? productQuantity : 1}
-                </span>
-                <button
-                  onClick={() => setProductQuantity(productQuantity + 1 || 1)}
-                  className="hover:bg-red-500 btn hover:text-white p-3"
-                >
-                  <FaPlus className="text-xl" />
-                </button>
-              </div>
-
               <button className="flex ml-auto btn text-white text-lg bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded">
                 Buy Now
               </button>

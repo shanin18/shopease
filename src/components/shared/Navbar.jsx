@@ -10,6 +10,7 @@ import { useCart } from "../../AuthProvider/CartProvider";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation();
   const signup = location.pathname.includes("signup");
   const { logout, user } = useAuth();
@@ -31,6 +32,10 @@ const Navbar = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     addSearchText(e.target.value);
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -90,12 +95,12 @@ const Navbar = () => {
 
             {user?.email && <MdFavoriteBorder className="text-2xl" />}
             {user?.email && (
-              <div className="relative">
+              <Link to="/order-summery" className="relative">
                 <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
                   {cart?.length}
                 </span>
                 <CiShoppingCart className="text-3xl" />
-              </div>
+              </Link>
             )}
 
             {user?.email && (
@@ -106,6 +111,9 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-10 rounded-full">
+                    {isLoading && (
+                      <div className="w-10 h-10 rounded-full skeleton"></div>
+                    )}
                     <img
                       alt="Tailwind CSS Navbar component"
                       src={
@@ -113,6 +121,7 @@ const Navbar = () => {
                         "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
                       }
                       loading="lazy"
+                      onLoad={handleImageLoad}
                     />
                   </div>
                 </div>
@@ -155,12 +164,12 @@ const Navbar = () => {
             </div>
           )}
           {user?.email && (
-            <div className="relative">
+            <Link to="/order-summery" className="relative">
               <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
                 {cart?.length}
               </span>
               <CiShoppingCart className="text-3xl" />
-            </div>
+            </Link>
           )}
 
           {user?.email && (
@@ -171,6 +180,9 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
+                  {isLoading && (
+                    <div className="w-10 h-10 rounded-full skeleton"></div>
+                  )}
                   <img
                     alt="Tailwind CSS Navbar component"
                     src={
@@ -178,6 +190,7 @@ const Navbar = () => {
                       "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
                     }
                     loading="lazy"
+                    onLoad={handleImageLoad}
                   />
                 </div>
               </div>

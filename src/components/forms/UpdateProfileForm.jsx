@@ -8,6 +8,7 @@ const UpdateProfileForm = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
   const [hover, setHover] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [userProfileImage, setUserProfileImage] = useState(null);
 
   const { user, updateUserPassword, updateUserProfile, updateUserEmail } =
@@ -98,6 +99,10 @@ const UpdateProfileForm = () => {
     }
   };
 
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   return (
     <form onSubmit={handleUpdateProfile} className="space-y-8">
       <div className="flex justify-center">
@@ -106,12 +111,14 @@ const UpdateProfileForm = () => {
           onMouseLeave={() => setHover(false)}
           className="w-32 h-32 rounded-full overflow-hidden relative"
         >
+          {isLoading && <div className="w-32 h-32 rounded-full skeleton"></div>}
           <img
             src={
               preview ||
               userProfileImage ||
               "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
             }
+            onLoad={handleImageLoad}
             alt="Preview"
             loading="lazy"
             className="w-full"

@@ -11,8 +11,6 @@ const DashboardLayout = () => {
   const [largeScreen, setLargeScreen] = useState(false);
   const location = useLocation().pathname.includes("edit-products");
 
-  console.log(sidebarOpen);
-
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   useEffect(() => {
     const handleResize = () => {
