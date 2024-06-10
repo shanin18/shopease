@@ -34,15 +34,18 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUserProfile = (name, image) => {
-    return updateProfile(auth.currentUser, {
-      displayName: name,
-      photoURL: image,
-    });
+    if ((name, image)) {
+      return updateProfile(auth?.currentUser, {
+        displayName: name,
+        photoURL: image,
+      });
+    }
   };
 
   const updateUserEmail = (newEmail) => {
     return updateEmail(auth.currentUser, newEmail);
   };
+  
   const updateUserPassword = (newPassword) => {
     return updatePassword(auth.currentUser, newPassword);
   };

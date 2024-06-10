@@ -26,14 +26,28 @@ const SignUpForm = () => {
       setPassMatch(false);
     }
 
-    if (password === confirm_password) {
-      await createUser(email, password);
-      await updateUserProfile(name, image);
+    try {
+      if (password === confirm_password) {
+        await createUser(email, password);
+        await updateUserProfile(name, image);
+      }
+    } catch (error) {
+      Swal.fire({
+        title: error.message,
+        icon: "error",
+      });
     }
   };
 
   const handleGoogleSignIn = async () => {
-    await googleLogin();
+    try {
+      await googleLogin();
+    } catch (error) {
+      Swal.fire({
+        title: error.message,
+        icon: "error",
+      });
+    }
   };
 
   useEffect(() => {

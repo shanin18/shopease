@@ -1,5 +1,6 @@
 import React from "react";
 import SignUpForm from "../components/forms/SignUpForm";
+import useTitle from "../hooks/useTitle";
 
 const SignUp = () => {
   useTitle("Sign Up");
