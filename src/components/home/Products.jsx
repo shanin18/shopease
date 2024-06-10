@@ -42,9 +42,10 @@ const Products = ({ data }) => {
       },
     ],
   };
-  
+
   return (
     <div>
+      {data?.length === 0 && <p className="text-lg">No Products Found</p>}
       <Slider {...settings}>
         {data?.map((item, index) => (
           <div key={index} className="px-3">

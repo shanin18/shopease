@@ -11,7 +11,7 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
   const [hover, setHover] = useState(false);
   const navigate = useNavigate();
   const isAllProductsPage = useLocation().pathname.includes("all-products");
-  const { _id, name, img, price, ratings, ratingsCount } = data;
+  const { _id, name, img, price, ratings, ratingsCount, discount } = data;
 
   const handleAddToCart = () => {
     console.log("Added to cart");
@@ -35,10 +35,11 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
           onError={handleImageError}
           className="w-full"
         />
-
-        <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
-          -40%
-        </p>
+        {discount && (
+          <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
+            -{discount}%
+          </p>
+        )}
 
         {isAllProductsPage ? (
           <div className="rounded-full p-1 absolute top-1 right-1 dropdown dropdown-end">
@@ -59,7 +60,10 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
           </div>
         ) : (
           <div className="absolute top-1 right-1 space-x-2">
-            <button className="bg-white rounded-full p-1 hover:bg-gray-100" aria-label="Add to Favorites">
+            <button
+              className="bg-white rounded-full p-1 hover:bg-gray-100"
+              aria-label="Add to Favorites"
+            >
               <MdFavoriteBorder className="md:text-lg lg:text-xl cursor-pointer" />
             </button>
             <button

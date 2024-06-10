@@ -10,20 +10,25 @@ import useGetAllProducts from "../hooks/useGetAllProducts";
 import useTitle from "../hooks/useTitle";
 
 const Home = () => {
-  useTitle("Home")
+  useTitle("Home");
   const { isLoading, error, data } = useGetAllProducts();
 
   if (isLoading) return <LoadingSpinner />;
   if (error) return <p>An error occurred: {error.message}</p>;
 
+  const flashSaleData = data?.filter((item) => item.feature === "flash sale");
+  const bestSellingData = data?.filter(
+    (item) => item.feature === "best selling"
+  );
+
   return (
     <div className="container mx-auto space-y-10 md:space-y-16">
       <Banner />
-      <FlashSales data={data} />
+      <FlashSales data={flashSaleData} />
       <hr />
       <Categories />
       <hr />
-      <BestSelling data={data} />
+      <BestSelling data={bestSellingData} />
       <Banner2 />
       <NewArrival />
       <Services />

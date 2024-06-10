@@ -7,7 +7,7 @@ import useDeleteProduct from "../hooks/useDeleteProduct";
 import useTitle from "../hooks/useTitle";
 
 const AllProducts = () => {
-  useTitle("All Products")
+  useTitle("All Products");
 
   const { isLoading, data: products } = useGetAllProducts();
   const { mutate: deleteProduct } = useDeleteProduct();
@@ -32,9 +32,10 @@ const AllProducts = () => {
 
   return (
     <section className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 p-5 h-screen overflow-y-scroll">
+      {products?.length === 0 && <p className="text-lg">No Products Found</p>}
       {products?.map((product) => (
         <ProductCard
-          key={product?.id}
+          key={product?._id}
           data={product}
           handleDelete={handleDelete}
         />

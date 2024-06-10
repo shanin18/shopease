@@ -15,7 +15,7 @@ const ProductDetails = () => {
   if (isLoading) return <LoadingSpinner />;
   if (error) return <p>An error occurred: {error.message}</p>;
 
-  const { img, name, price, ratings, ratingsCount, stock } = product;
+  const { img, name, price, ratings, ratingsCount, stock, description } = product;
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -53,14 +53,7 @@ const ProductDetails = () => {
             <p className="title-font font-medium text-2xl text-gray-900 mb-5">
               ${price}
             </p>
-            <p className="leading-relaxed">
-              Fam locavore kickstarter distillery. Mixtape chillwave tumeric
-              sriracha taximy chia microdosing tilde DIY. XOXO fam indxgo
-              juiceramps cornhole raw denim forage brooklyn. Everyday carry +1
-              seitan poutine tumeric. Gastropub blue bottle austin listicle
-              pour-over, neutra jean shorts keytar banjo tattooed umami
-              cardigan.
-            </p>
+            <p className="leading-relaxed">{description}</p>
 
             <div
               className="flex mt-6 items-center pt-5 border-t-2 border-gray-100 mb-5"
