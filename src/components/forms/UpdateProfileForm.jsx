@@ -113,6 +113,7 @@ const UpdateProfileForm = () => {
               "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
             }
             alt="Preview"
+            loading="lazy"
             className="w-full"
           />
           <label

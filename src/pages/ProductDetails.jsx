@@ -15,7 +15,8 @@ const ProductDetails = () => {
   if (isLoading) return <LoadingSpinner />;
   if (error) return <p>An error occurred: {error.message}</p>;
 
-  const { img, name, price, ratings, ratingsCount, stock, description } = product;
+  const { img, name, price, ratings, ratingsCount, stock, description } =
+    product;
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -25,6 +26,7 @@ const ProductDetails = () => {
             alt="product image"
             className="lg:w-1/2 w-full lg:h-auto h-80 object-cover object-center rounded"
             src={img}
+            loading="lazy"
           />
           <div
             className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0"

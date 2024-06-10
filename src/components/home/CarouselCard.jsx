@@ -13,7 +13,7 @@ const CarouselCard = ({ item }) => {
         </button>
       </div>
       <div className="">
-        <img src={image} alt="phone" />
+        <img src={image} alt="phone" loading="lazy" />
       </div>
     </div>
   );

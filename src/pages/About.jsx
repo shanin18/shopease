@@ -36,6 +36,7 @@ const About = () => {
               alt="ecommerce"
               className="object-cover object-center rounded bg-[#2cb4a8]"
               src={image}
+              loading="lazy"
             />
           </div>
         </div>

@@ -156,7 +156,7 @@ const SignUpForm = () => {
         type="submit"
         className="border py-2 px-6 focus:outline-none bg-gray-100 rounded btn w-full"
       >
-        <img src={googleImage} alt="google logo" />
+        <img src={googleImage} alt="google logo" loading="lazy" />
         Sign up with Google
       </button>
       <p className="text-center mt-5">

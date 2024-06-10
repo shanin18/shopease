@@ -17,7 +17,7 @@ const AuthLayout = () => {
             className="lg:w-2/3 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-start justify-start relative"
             bis_skin_checked="1"
           >
-            <img src={LoginImage} alt="login image"/>
+            <img src={LoginImage} alt="login image" loading="lazy"/>
           </div>
           <Outlet />
         </div>

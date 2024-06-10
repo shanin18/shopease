@@ -15,7 +15,7 @@ const Banner2 = () => {
         </button>
       </div>
       <div className="flex justify-center">
-        <img src={speakerImg} alt="jbl speaker" className="w-2/3 md:w-full" />
+        <img src={speakerImg} alt="jbl speaker" className="w-2/3 md:w-full" loading="lazy" />
       </div>
     </section>
   );

@@ -94,6 +94,7 @@ const Navbar = () => {
                         user?.photoURL ||
                         "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
                       }
+                      loading="lazy"
                     />
                   </div>
                 </div>
@@ -152,6 +153,7 @@ const Navbar = () => {
                       user?.photoURL ||
                       "https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg"
                     }
+                    loading="lazy"
                   />
                 </div>
               </div>

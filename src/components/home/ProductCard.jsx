@@ -34,6 +34,7 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
           alt={name || "Product Image"}
           onError={handleImageError}
           className="w-full"
+          loading="lazy"
         />
         {discount > 0 && (
           <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">

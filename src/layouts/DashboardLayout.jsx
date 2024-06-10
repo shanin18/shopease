@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { AiOutlineHome, AiOutlineProduct } from "react-icons/ai";
+import { FaRegEdit } from "react-icons/fa";
 import { HiOutlineBars3 } from "react-icons/hi2";
+import { MdAddShoppingCart } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 const DashboardLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [largeScreen, setLargeScreen] = useState(false);
   const location = useLocation().pathname.includes("edit-products");
+
+  console.log(sidebarOpen);
 
   const getClassNames = ({ isActive }) => (isActive ? "active" : "inactive");
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setSidebarOpen(true);
+        setLargeScreen(true);
       } else {
         setSidebarOpen(false);
+        setLargeScreen(false);
       }
     };
 
@@ -48,19 +56,32 @@ const DashboardLayout = () => {
             </div>
             <div className="flex flex-col">
               <NavLink to="/" className={getClassNames}>
+                <AiOutlineHome className="text-lg inline mr-2 mb-1" />
                 Home
               </NavLink>
-              <NavLink to="/dashboard/all-products" className={getClassNames}>
+              <NavLink
+                to="/dashboard/all-products"
+                className={getClassNames}
+                onClick={() => !largeScreen && setSidebarOpen(false)}
+              >
+                <AiOutlineProduct className="text-lg inline mr-2 mb-1" />
                 All Products
               </NavLink>
-              <NavLink to="/dashboard/add-products" className={getClassNames}>
+              <NavLink
+                to="/dashboard/add-products"
+                className={getClassNames}
+                onClick={() => !largeScreen && setSidebarOpen(false)}
+              >
+                <MdAddShoppingCart className="text-lg inline mr-2 mb-1" />
                 Add Products
               </NavLink>
               {location && (
                 <NavLink
                   to="/dashboard/edit-products"
                   className={getClassNames}
+                  onClick={() => !largeScreen && setSidebarOpen(false)}
                 >
+                  <FaRegEdit className="text-lg inline mr-2 mb-1" />
                   Edit Products
                 </NavLink>
               )}

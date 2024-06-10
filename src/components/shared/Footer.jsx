@@ -100,16 +100,16 @@ const Footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <p className="mb-3">Save $3 with App New User Only</p>
-                <div className="flex items-center gap-3 mb-5">
+                <div className="flex items-center gap-3 justify-center lg:justify-start mb-5">
                   <div>
-                    <img src={qrCode} alt="qr code image" />
+                    <img src={qrCode} alt="qr code image" loading="lazy" />
                   </div>
                   <div className="space-y-3">
                     <div>
-                      <img src={googleplay} alt="google play image" />
+                      <img src={googleplay} alt="google play image" loading="lazy" />
                     </div>
                     <div>
-                      <img src={appstore} alt="app store image" />
+                      <img src={appstore} alt="app store image" loading="lazy" />
                     </div>
                   </div>
                 </div>

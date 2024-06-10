@@ -13,6 +13,7 @@ const MemberCard = ({ member }) => {
             alt="team"
             className="rounded-lg w-full h-56 object-cover object-center mb-4"
             src={image}
+            loading="lazy"
           />
         </div>
 
