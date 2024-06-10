@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { useCart } from "../AuthProvider/CartProvider";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useTitle from "../hooks/useTitle";
 
 const OrderSummery = () => {
   const [isLoading, setIsLoading] = useState(true);
+  useTitle("Order Summery");
   const { cart } = useCart();
 
   const handleImageLoad = () => {
