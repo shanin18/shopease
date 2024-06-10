@@ -35,7 +35,7 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
           onError={handleImageError}
           className="w-full"
         />
-        {discount && (
+        {discount > 0 && (
           <p className="px-3 py-1 bg-red-500 rounded text-xs text-white absolute top-1 left-1">
             -{discount}%
           </p>

@@ -14,11 +14,13 @@ import EditProducts from "../pages/EditProducts";
 import ProductDetails from "../pages/ProductDetails";
 import PrivateRoute from "./PrivateRoute";
 import MyProfile from "../pages/MyProfile";
+import Error from "../pages/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -57,6 +59,7 @@ const router = createBrowserRouter([
   {
     path: "auth",
     element: <AuthLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "login",
@@ -71,6 +74,7 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <DashboardLayout />,
+    errorElement: <Error />,
     children: [
       {
         path: "all-products",

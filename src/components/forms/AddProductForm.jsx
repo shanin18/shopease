@@ -9,7 +9,6 @@ const AddProductForm = () => {
   const handleEditForm = (e) => {
     e.preventDefault();
     const form = e.target;
-    const id = form.id.value;
     const name = form.name.value;
     const category = form.category.value;
     const seller = form.seller.value;
@@ -23,43 +22,52 @@ const AddProductForm = () => {
     const description = form.description.value;
     const discount = form.discount.value;
     const feature = form.feature.value;
-
-    if (discount < 0) {
-      return setError("discount must be positive value");
-    } else {
-      setError("");
-    }
-
-    const newProduct = {
-      name,
-      category,
-      seller,
-      price,
-      ratings,
-      img,
-      stock,
-      shipping,
-      ratingsCount,
-      quantity,
-      discount,
-      description,
-      feature,
-    };
-
-    Swal.fire({
-      title: "Are you sure?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, add it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        addProduct(newProduct);
-        form.reset();
+    try {
+      if (discount < 0) {
+        return setError("discount must be positive value");
+      } else {
+        setError("");
       }
-    });
+
+      const newProduct = {
+        name,
+        category,
+        seller,
+        price,
+        ratings,
+        img,
+        stock,
+        shipping,
+        ratingsCount,
+        quantity,
+        discount,
+        description,
+        feature,
+      };
+
+      Swal.fire({
+        title: "Are you sure?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, add it!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          addProduct(newProduct);
+          form.reset();
+        }
+      });
+    } catch (error) {
+      Swal.fire({
+        title: error?.message,
+        icon: "error",
+        showConfirmButton: true,
+      });
+    }
   };
+
+  
   return (
     <form
       onSubmit={handleEditForm}
