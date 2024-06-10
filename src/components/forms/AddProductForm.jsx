@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import useAddProduct from "../../hooks/useAddProduct";
 
 const AddProductForm = () => {
+  const [error, setError] = useState("");
   const { mutate: addProduct } = useAddProduct();
 
   const handleEditForm = (e) => {
@@ -19,9 +20,17 @@ const AddProductForm = () => {
     const shipping = form.shipping.value;
     const ratingsCount = form.ratingsCount.value;
     const quantity = form.quantity.value;
+    const description = form.description.value;
+    const discount = form.discount.value;
+    const feature = form.feature.value;
+
+    if (discount < 0) {
+      return setError("discount must be positive value");
+    } else {
+      setError("");
+    }
 
     const newProduct = {
-      id,
       name,
       category,
       seller,
@@ -32,6 +41,9 @@ const AddProductForm = () => {
       shipping,
       ratingsCount,
       quantity,
+      discount,
+      description,
+      feature,
     };
 
     Swal.fire({
@@ -210,6 +222,61 @@ const AddProductForm = () => {
               required
               className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
+          </div>
+        </div>
+        <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+          <div className="relative" bis_skin_checked="1">
+            <label
+              htmlFor="discount"
+              className="leading-7 text-sm text-gray-600"
+            >
+              Discount
+            </label>
+            <input
+              type="number"
+              id="discount"
+              name="discount"
+              required
+              className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+            <span className="text-red-500 text-sm">{error}</span>
+          </div>
+        </div>
+        <div className="p-2 w-full sm:w-1/2" bis_skin_checked="1">
+          <div className="relative" bis_skin_checked="1">
+            <label
+              htmlFor="feature"
+              className="leading-7 text-sm text-gray-600"
+            >
+              Feature
+            </label>
+            <select
+              name="feature"
+              id="feature"
+              required
+              className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 outline-none text-gray-700 py-2 px-3 leading-8 transition-colors duration-200 ease-in-out text-base"
+            >
+              <option value="new arrival">New Arrival</option>
+              <option value="flash sale">Flash Sale</option>
+              <option value="best selling">Best Selling</option>
+              <option value="regular">Regular</option>
+            </select>
+          </div>
+        </div>
+        <div className="p-2 w-full" bis_skin_checked="1">
+          <div className="relative" bis_skin_checked="1">
+            <label
+              htmlFor="description"
+              className="leading-7 text-sm text-gray-600"
+            >
+              Description
+            </label>
+            <textarea
+              required
+              name="description"
+              id="description"
+              className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out h-24"
+            ></textarea>
           </div>
         </div>
 

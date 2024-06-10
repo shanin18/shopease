@@ -56,7 +56,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/96a5f085fedf4e678095abad01056711_9366/Lite_Racer_Adapt_3.0_Shoes_Black_FX8802_01_standard.jpg",
     "shipping": 32,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Step into lightweight comfort with the Lite Racer Adapt 3.0 Shoes. Perfect for everyday wear or casual workouts, these shoes offer a snug fit and responsive cushioning for all-day comfort."
   },
@@ -150,7 +150,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/0e03e7a2a9cb44dfac2bad6a00f95888_9366/NMD_R1_Primeblue_Shoes_White_GZ9261_01_standard.jpg",
     "shipping": 36,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Elevate your sneaker game with the NMD_R1 Primeblue Shoes. Made with Primeblue, a high-performance recycled material, and featuring responsive cushioning, these shoes offer both style and sustainability."
   },
@@ -195,7 +195,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/9c7058d8677742ac8519ac3f009cdcf4_9366/Tiro_21_Track_Pants_Black_GH7305_21_model.jpg",
     "shipping": 8,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay ahead of the curve with the TIRO 21 Track Pants. Featuring moisture-wicking fabric and zip pockets, these pants offer both style and functionality for your everyday activities."
   },
@@ -225,7 +225,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/c447324cf06544b78105ade500fd9e2f_9366/Tiro_Pants_Black_HI1073_21_model.jpg",
     "shipping": 33,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Step up your style game with the TIRO Pants in black and gold. Featuring a modern design with metallic accents and made from soft, comfortable fabric, these pants are perfect for everyday wear."
   },
@@ -319,7 +319,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/f5350f3d583c46038534ab6d01445e2a_9366/Tactical_Lexicon_ADV_Boots_Grey_EG9386_01_standard.jpg",
     "shipping": 33,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Step up your outdoor game with the TACTICAL LEXICON ADV BOOTS. Featuring a durable construction and rugged design, these boots offer traction and stability for all your adventures in the wild."
   },
@@ -439,7 +439,7 @@
     "img": "https://www.jdsports.gr/2685114/adidas-originals-adicolor-classics-trefoil-tee.jpg",
     "shipping": 38,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Show off your adidas pride with the ADICOLOR CLASSICS TREFOIL TEE. Featuring a large Trefoil logo on the front, this tee offers a classic look with a modern twist."
   },
@@ -454,7 +454,7 @@
     "img": "https://img1.theiconic.com.au/laf0KDNUTFZA1ofVz2IMF8ZMUYs=/fit-in/1000x0/filters:fill(ffffff):quality(85)/http%3A%2F%2Fstatic.theiconic.com.au%2Fp%2Fadidas-performance-7508-0732921-1.jpg",
     "shipping": 2,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay comfortable on long runs with the OWN THE RUN LONG SLEEVE TEE. Featuring moisture-wicking fabric and a breathable design, this tee helps you stay cool and dry from start to finish."
   },
@@ -484,7 +484,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/ba79ccb861fd4fd49e3aac9f006a6407_9366/3-Stripes_Backpack_2.0_Grey_EX6735_01_standard.jpg",
     "shipping": 23,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Carry your gear in style with the 3-Stripes Backpack 2.0. Featuring multiple pockets and adjustable straps, this backpack offers convenience and comfort for your daily adventures."
   },
@@ -529,7 +529,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/a9e0c5635057425daab5ad0b0089194b_9366/Blue_Version_Backpack_Black_H22735_01_standard.jpg",
     "shipping": 21,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Carry your essentials in style with the Blue Version Backpack. Featuring a sleek design and plenty of storage space, this backpack is perfect for everyday use."
   },
@@ -544,7 +544,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d6ee0177281f42f0a254acb1016aa051_9366/Defender_Backpack_Red_EX7011_01_standard.jpg",
     "shipping": 15,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Travel in style with the Defender Backpack. Featuring a durable design and multiple compartments, this backpack offers plenty of space for your belongings."
   },
@@ -559,7 +559,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/ac09bb56249b43158485aca1007cc1ef_9366/Excel_Backpack_Black_EX6933_01_standard.jpg",
     "shipping": 14,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Organize your essentials with the Excel Backpack. Featuring multiple compartments and a durable construction, this backpack is perfect for work, school, or travel."
   },
@@ -574,7 +574,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/2e8a6f09838d49c3b00fad4f0017f753_9366/Alliance_Sackpack_White_FZ6823_01_standard.jpg",
     "shipping": 40,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Carry your gear with ease using the Alliance Sackpack. Featuring a drawstring closure and adidas branding, this sackpack offers convenient storage for your essentials."
   },
@@ -589,7 +589,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/1c87c940836e4628852bad130101e5c6_9366/R.Y.V._Toploader_Backpack_Black_H32458_01_standard.jpg",
     "shipping": 20,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Carry your essentials in style with the R.Y.V. Toploader Backpack. Featuring a sleek design and adjustable straps, this backpack offers comfort and functionality."
   },
@@ -604,7 +604,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0bb325f9cc174ea4bed7ad9e0101b682_9366/Adicolor_Archive_Backpack_Green_HE9804_01_standard.jpg",
     "shipping": 19,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Add a pop of color to your look with the Adicolor Archive Backpack. Featuring a vibrant design and spacious compartments, this backpack combines style and functionality."
   },
@@ -619,7 +619,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/dc7dca21df62473ea518ade101251809_9366/R.Y.V._Backpack_Black_HD9650_01_standard.jpg",
     "shipping": 24,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay organized on the go with the R.Y.V. Backpack. Featuring multiple pockets and padded straps, this backpack offers comfort and convenience for your daily adventures."
   },
@@ -664,7 +664,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0ae141db6fce44999337ac8e015954ea_9366/Superlite_Hat_Grey_EX7054_01_standard.jpg",
     "shipping": 32,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Keep the sun out of your eyes with the Superlite Hat. Featuring a moisture-wicking sweatband and adjustable strap, this hat offers comfort and breathability."
   },
@@ -679,7 +679,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/272d5d9cb7b74415a6c9ac8e015a4ccc_9366/Superlite_Hat_Black_EX7048_01_standard.jpg",
     "shipping": 24,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay cool and comfortable with the Superlite Hat. Featuring a lightweight design and adjustable strap, this hat is perfect for sunny days and outdoor activities."
   },
@@ -694,7 +694,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/df67ab60b5574c368b76adf9010f2d2d_9366/Tee_Time_5-Panel_Hat_Black_HA9254_01_standard.jpg",
     "shipping": 48,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Hit the links in style with the Tee Time 5-Panel Hat. Featuring a golf-inspired design and adjustable strap, this hat adds a sporty touch to your look."
   },
@@ -709,7 +709,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0ce5f49aa0914deabf16adc600d09e60_9366/Baseball_Cap_Black_HD7039_01_standard.jpg",
     "shipping": 48,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Complete your casual look with the Baseball Cap. Featuring a classic design and adjustable strap, this cap offers comfort and timeless style."
   },
@@ -724,7 +724,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/aaa5ae549c624178bc25a740012dd61f_9366/Relaxed_Strap-Back_Hat_White_BH7135_01_standard.jpg",
     "shipping": 6,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay relaxed and stylish with the Relaxed Strap-Back Hat. Featuring a soft fabric and embroidered logo, this hat offers a comfortable fit and laid-back vibe."
   },
@@ -739,7 +739,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/e1e758585df14bbbb7d8aaf000c95bd7_9366/UNISEX_ORIGINALS_WASHED_BUCKET_White_CM3933_01_standard.jpg",
     "shipping": 14,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Add a retro touch to your look with the UNISEX ORIGINALS WASHED BUCKET Hat. Featuring a washed finish and embroidered logo, this bucket hat offers vintage-inspired style."
   },
@@ -754,7 +754,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/92e77a8d84d845d19171ad50003f2ea1_9366/SST_Plus_Strap-Back_Hat_White_FZ8569_01_standard.jpg",
     "shipping": 47,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Top off your look with the SST Plus Strap-Back Hat. Featuring a sporty design and adidas branding, this hat adds athletic flair to any outfit."
   },
@@ -769,7 +769,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c3981523051c4a978674ad3c01015664_9366/Dispatch_Trucker_Hat_Black_EY5534_01_standard.jpg",
     "shipping": 14,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Hit the road in style with the Dispatch Trucker Hat. Featuring a mesh back and adjustable snap closure, this hat offers breathability and a customized fit."
   },
@@ -784,7 +784,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/00276c6c380b41bcb29fadcc00f98312_9366/adidas_Z.N.E._01_True_Wireless_Earbuds_Grey_EY5116_42_detail.jpg",
     "shipping": 23,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Experience true wireless freedom with the adidas Z.N.E. 01 True Wireless Earbuds."
   },
@@ -829,7 +829,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c45df020e3ae4e9199a4ac7d0001cfb7_9366/Steel_Metal_Bottle_1L_White_EX7301_01_standard.jpg",
     "shipping": 17,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated in style with the Steel Metal Bottle 1L. Featuring a clean design and convenient carry loop, this bottle is perfect for the gym, office, or outdoor activities."
   },
@@ -844,7 +844,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c670a94f6388451a868fad440014460d_9366/Steel_Metal_Bottle_1_L_Purple_EY5529_01_standard.jpg",
     "shipping": 45,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Make a statement with the Steel Metal Bottle 1 L. Featuring a bold color and durable construction, this bottle is perfect for staying hydrated on the go."
   },
@@ -859,7 +859,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/29ef510920b54492a721aa1c01782cb2_9366/Steel_Metal_Bottle_1L_White_CL6092_01_standard.jpg",
     "shipping": 21,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated in style with the Steel Metal Bottle 1L. Featuring a clean design and convenient carry loop, this bottle is perfect for the gym, office, or outdoor activities."
   },
@@ -874,7 +874,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/1105dc0c9232477eb80dac7d000edc0c_9366/Steel_Metal_Bottle_600_ML_White_EX7306_01_standard.jpg",
     "shipping": 43,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated on the go with the Steel Metal Bottle 600 ML. Featuring a sleek design and convenient size, this bottle is perfect for everyday use and outdoor adventures."
   },
@@ -889,7 +889,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/f7fb63986ed34112bc57ac7d002c9f43_9366/Steel_Straw_Metal_Bottle_600_ML_White_EX7316_01_standard.jpg",
     "shipping": 46,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay eco-friendly with the Steel Straw Metal Bottle 600 ML. Featuring a reusable straw and durable construction, this bottle is perfect for reducing single-use plastic waste."
   },
@@ -905,7 +905,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/e2d870a680644e4d98e9ac7d0008ecc7_9366/Steel_Metal_Bottle_600_ML_Yellow_EX7307_01_standard.jpg",
     "shipping": 6,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated on the go with the Steel Metal Bottle 600 ML. Featuring a sleek design and durable construction, this bottle is perfect for everyday use and outdoor adventures."
   },
@@ -920,7 +920,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/77ad16764abf4e828560ad44001cd640_9366/Squad_Glass_Bottle_720_ML_Black_FZ7115_01_standard.jpg",
     "shipping": 5,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Enjoy your favorite beverages on the go with the Squad Glass Bottle 720 ML. Featuring a sleek design and durable glass construction, this bottle is perfect for staying hydrated throughout the day."
   },
@@ -935,7 +935,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/48057b65216644f683a9aa1c0172ae6e_9366/Steel_Bottle_600_ML_Black_CL6093_01_standard.jpg",
     "shipping": 5,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated on the go with the Steel Bottle 600 ML. Featuring a sleek design and durable construction, this bottle is perfect for everyday use and outdoor adventures."
   },
@@ -950,7 +950,7 @@
     "img": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/f8d89293c9cb4bf08d52adb100f95a3a_9366/Steel_Metal_Bottle_2L_Black_EX7302_01_standard.jpg",
     "shipping": 27,
     "quantity": 0,
-    "feature": "none",
+    "feature": "regular",
     "favorite": false,
     "description": "Stay hydrated on the go with the Steel Metal Bottle 2L. Featuring a sleek design and durable construction, this bottle is perfect for everyday use and outdoor adventures."
   }

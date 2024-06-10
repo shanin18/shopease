@@ -106,9 +106,6 @@ const Navbar = () => {
                       Profile
                     </Link>
                   </li>
-                  <li>
-                    <Link to="#">Settings</Link>
-                  </li>
                   <li onClick={handleLogout}>
                     <p>Logout</p>
                   </li>
@@ -166,9 +163,6 @@ const Navbar = () => {
                   <Link to="/profile" className="justify-between">
                     Profile
                   </Link>
-                </li>
-                <li>
-                  <Link to="#">Settings</Link>
                 </li>
                 <li onClick={handleLogout}>
                   <p>Logout</p>
