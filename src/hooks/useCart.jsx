@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { AuthContext } from "../AuthProvider/AuthProvider";
+import { CartContext } from "../providers/CartProvider";
 
-const useAuth = () => {
-  const auth = useContext(AuthContext);
+const useCart = () => {
+  const auth = useContext(CartContext);
   return auth;
 };
 
-export default useAuth;
+export default useCart;

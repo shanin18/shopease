@@ -15,7 +15,8 @@ import ProductDetails from "../pages/ProductDetails";
 import PrivateRoute from "./PrivateRoute";
 import MyProfile from "../pages/MyProfile";
 import Error from "../pages/Error";
-import OrderSummery from "../pages/OrderSummery";
+import CartPage from "../pages/CartPage";
+import OrderSummaryPage from "../pages/OrderSummaryPage";
 
 const router = createBrowserRouter([
   {
@@ -56,10 +57,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "order-summery",
+        path: "cart",
         element: (
           <PrivateRoute>
-            <OrderSummery />
+            <CartPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "order-summary",
+        element: (
+          <PrivateRoute>
+            <OrderSummaryPage />
           </PrivateRoute>
         ),
       },

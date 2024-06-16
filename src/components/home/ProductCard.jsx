@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoIosInformationCircle } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Ratings from "../others/Ratings";
 import defaultImage from "../../assets/images/product/defaultImage.webp";
-import { useCart } from "../../AuthProvider/CartProvider";
+import { useCart } from "../../providers/CartProvider";
 
 const ProductCard = React.memo(({ data, handleDelete }) => {
   const [seeMore, setSeeMore] = useState(false);
@@ -18,7 +18,7 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
   const { _id, name, img, price, ratings, ratingsCount, discount } = data;
 
   const handleAddToCart = () => {
-    const item = { _id, name, img, price, discount };
+    const item = { _id, name, img, price, discount, quantity: 1 };
     const itemExists = cart.some((cartItem) => cartItem._id === item._id);
     if (!itemExists) {
       addToCart(item);

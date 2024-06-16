@@ -6,7 +6,7 @@ import { RxCross1 } from "react-icons/rx";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import { useCart } from "../../AuthProvider/CartProvider";
+import { useCart } from "../../providers/CartProvider";
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -14,7 +14,7 @@ const Navbar = () => {
   const location = useLocation();
   const signup = location.pathname.includes("signup");
   const { logout, user } = useAuth();
-  const { cart, addSearchText } = useCart();
+  const { cart, filteredText, setFilteredText } = useCart();
 
   const handleLogout = async () => {
     await logout();
@@ -31,7 +31,7 @@ const Navbar = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    addSearchText(e.target.value);
+    setFilteredText(e.target.value);
   };
 
   const handleImageLoad = () => {
@@ -87,6 +87,7 @@ const Navbar = () => {
                   onChange={handleSearch}
                   type="text"
                   placeholder="Search"
+                  defaultValue={filteredText}
                   className="border pl-3 pr-8 py-2 rounded bg-gray-200 w-full text-sm outline-none"
                 />
                 <CiSearch className="absolute text-xl top-2 right-2" />
@@ -95,7 +96,7 @@ const Navbar = () => {
 
             {user?.email && <MdFavoriteBorder className="text-2xl" />}
             {user?.email && (
-              <Link to="/order-summery" className="relative">
+              <Link to="/cart" className="relative">
                 <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
                   {cart?.length}
                 </span>
@@ -127,7 +128,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                  className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 space-y-2"
                 >
                   <li>
                     <Link to="/profile" className="justify-between">
@@ -164,7 +165,7 @@ const Navbar = () => {
             </div>
           )}
           {user?.email && (
-            <Link to="/order-summery" className="relative">
+            <Link to="/cart" className="relative">
               <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
                 {cart?.length}
               </span>
