@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://shopease-server.vercel.app",
 });
 
 // Add a request interceptor to include the JWT token
