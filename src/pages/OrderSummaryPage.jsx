@@ -66,7 +66,6 @@ const OrderSummaryPage = () => {
 
   return (
     <section className="container mx-auto my-12 px-5 xl:px-0">
-      {/* <h2 className="text-2xl font-semibold mb-4">Order Summary</h2> */}
       <OrderDetails order={order} />
     </section>
   );

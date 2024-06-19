@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useLogin from "../../hooks/useLogin";
 
 const LoginForm = () => {
   const { signIn, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const loginMutation = useLogin();
 
   const from = location?.state?.from?.pathname || "/";
 
@@ -18,6 +20,8 @@ const LoginForm = () => {
     const password = form.password.value;
     try {
       await signIn(email, password);
+      await loginMutation.mutateAsync({ email, password });
+      
     } catch (error) {
       Swal.fire({
         title: error.message,

@@ -1,16 +1,31 @@
 import { useQuery } from "react-query";
+import apiClient from "../api/axios";
 
 const useGetProductDetailsById = (id) => {
   const { isLoading, error, data } = useQuery(["details", id], async () => {
-    const response = await fetch(
-      `https://shopease-server.vercel.app/products/${id}`
-    );
-    if (!response.ok) {
-      const errorMessage = await response.text();
-      throw new Error(errorMessage || "Network response was not ok");
+    try {
+      const response = await apiClient.get(`/products/${id}`);
+      
+      if (!response || !response.data) {
+        throw new Error("No data received from server");
+      }
+      
+      return response.data;
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        throw new Error("Product not found");
+      } else if (error.response && error.response.status === 401) {
+        throw new Error("Unauthorized");
+      } else if (error.response && error.response.status === 500) {
+        throw new Error("Internal server error");
+      } else if (error.response && error.response.data) {
+        throw new Error(error.response.data.message || "Unknown error occurred");
+      } else {
+        throw new Error(error.message || "Failed to fetch product details");
+      }
     }
-    return response.json();
   });
+
   return { isLoading, error, data };
 };
 

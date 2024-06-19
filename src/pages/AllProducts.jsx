@@ -10,7 +10,7 @@ const AllProducts = () => {
   useTitle("All Products");
 
   const { isLoading, data: products } = useGetAllProducts();
-  const { mutate: deleteProduct } = useDeleteProduct();
+  const deleteProductMutation = useDeleteProduct();
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -25,7 +25,7 @@ const AllProducts = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteProduct(id);
+        deleteProductMutation.mutateAsync(id);
       }
     });
   };

@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Ratings from "../components/others/Ratings";
 import LoadingSpinner from "../components/others/LoadingSpinner";
-import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 import useTitle from "../hooks/useTitle";
+import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 
 const ProductDetails = () => {
   const [size, setSize] = useState("l");

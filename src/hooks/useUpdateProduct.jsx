@@ -1,27 +1,16 @@
 import { useMutation, useQueryClient } from "react-query";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import apiClient from "../api/axios";
 
 const useUpdateProduct = () => {
   const queryClient = useQueryClient();
   const navigate = useNavigate();
+
   return useMutation(
     async ({ id, updatedProduct }) => {
-      const response = await fetch(
-        `https://shopease-server.vercel.app/products/${id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(updatedProduct),
-        }
-      );
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage || "Network response was not ok");
-      }
-      return response.json();
+      const response = await apiClient.put(`/products/${id}`, updatedProduct);
+      return response.data;
     },
     {
       onSuccess: () => {
@@ -33,6 +22,13 @@ const useUpdateProduct = () => {
           timer: 1500,
         });
         navigate("/dashboard/all-products");
+      },
+      onError: (error) => {
+        Swal.fire({
+          title: "Error editing product",
+          text: error.message,
+          icon: "error",
+        });
       },
     }
   );

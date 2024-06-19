@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "react-query";
+import apiClient from "../api/axios"; // Adjust the import path as necessary
 import Swal from "sweetalert2";
 
 const useAddProduct = () => {
@@ -6,21 +7,8 @@ const useAddProduct = () => {
 
   return useMutation(
     async (newProduct) => {
-      const response = await fetch(
-        "https://shopease-server.vercel.app/products",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newProduct),
-        }
-      );
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        throw new Error(errorMessage || "Network response was not ok");
-      }
-      return response.json();
+      const response = await apiClient.post("/products", newProduct);
+      return response.data;
     },
     {
       onSuccess: () => {
@@ -30,6 +18,14 @@ const useAddProduct = () => {
           icon: "success",
           showConfirmButton: false,
           timer: 1500,
+        });
+      },
+      onError: (error) => {
+        console.error("Add product error:", error.message);
+        Swal.fire({
+          title: "Failed to add product",
+          text: error.message,
+          icon: "error",
         });
       },
     }

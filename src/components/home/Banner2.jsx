@@ -9,7 +9,7 @@ const Banner2 = () => {
         <h2 className="text-white font-semibold text-4xl lg:text-5xl leading-tight text-center md:text-left">
           Enhance Your <br /> Music Experience
         </h2>
-        <Countdown targetDate="2024-06-11T23:59:59" color="white" />
+        <Countdown targetDate="2024-06-30T23:59:59" color="white" />
         <button className="text-white bg-green-500 rounded px-7 py-2 w-fit">
           Buy Now
         </button>

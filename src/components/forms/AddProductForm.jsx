@@ -4,7 +4,7 @@ import useAddProduct from "../../hooks/useAddProduct";
 
 const AddProductForm = () => {
   const [error, setError] = useState("");
-  const { mutate: addProduct } = useAddProduct();
+  const addProductMutation = useAddProduct();
 
   const handleEditForm = (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ const AddProductForm = () => {
         confirmButtonText: "Yes, add it!",
       }).then((result) => {
         if (result.isConfirmed) {
-          addProduct(newProduct);
+          addProductMutation.mutate(newProduct);
           form.reset();
         }
       });

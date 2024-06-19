@@ -13,7 +13,7 @@ const Products = () => {
   if (isLoading) return <LoadingSpinner />;
 
   const filteredData = products?.filter((item) =>
-    item?.name?.toLowerCase().includes(filteredText)
+    item?.name?.toLowerCase().includes(filteredText.toLowerCase())
   );
 
   return (
@@ -22,13 +22,21 @@ const Products = () => {
         <p className="text-lg text-center mt-8">No Products Found</p>
       )}
       <div className="container mx-auto grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-5 gap-y-10 p-5 md:px-0">
-        {filteredData?.length === 0
-          ? products?.map((product) => (
+        {filteredText === "" ? (
+          products?.length > 0 ? (
+            products.map((product) => (
               <ProductCard key={product?._id} data={product} />
             ))
-          : filteredData?.map((product) => (
-              <ProductCard key={product?._id} data={product} />
-            ))}
+          ) : (
+            <h1 className="text-lg text-center">No Products Available!</h1>
+          )
+        ) : filteredData?.length > 0 ? (
+          filteredData.map((product) => (
+            <ProductCard key={product?._id} data={product} />
+          ))
+        ) : (
+          <h1 className="text-lg text-center">No Product Found!</h1>
+        )}
       </div>
     </section>
   );

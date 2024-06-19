@@ -3,13 +3,14 @@ import googleImage from "../../assets/images/login/google.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
+import useSignUp from "../../hooks/useSignUp";
 
 const SignUpForm = () => {
   const [passMatch, setPassMatch] = useState(true);
   const { createUser, updateUserProfile, user, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-
+  const signUpMutation = useSignUp();
   const from = location?.state?.from?.pathname || "/";
 
   const handleSubmit = async (e) => {
@@ -30,6 +31,7 @@ const SignUpForm = () => {
       if (password === confirm_password) {
         await createUser(email, password);
         await updateUserProfile(name, image);
+        await signUpMutation.mutateAsync({ email, password });
       }
     } catch (error) {
       Swal.fire({
@@ -41,7 +43,11 @@ const SignUpForm = () => {
 
   const handleGoogleSignIn = async () => {
     try {
-      await googleLogin();
+      const response = await googleLogin();
+      await signUpMutation.mutateAsync({
+        email: response?.user?.email,
+        password: "google12345",
+      });
     } catch (error) {
       Swal.fire({
         title: error.message,

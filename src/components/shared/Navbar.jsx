@@ -18,6 +18,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await logout();
+    localStorage.removeItem("token");
     Swal.fire({
       title: "Logout Successfully!",
       icon: "success",
@@ -52,7 +53,11 @@ const Navbar = () => {
             <NavLink to="/" className={getClassNames2}>
               Home
             </NavLink>
-            <NavLink to="/products" className={getClassNames2}>
+            <NavLink
+              onClick={() => setFilteredText("")}
+              to="/products"
+              className={getClassNames2}
+            >
               Products
             </NavLink>
             <NavLink to="/contact" className={getClassNames2}>
@@ -237,7 +242,10 @@ const Navbar = () => {
             <NavLink
               to="/products"
               className={getClassNames}
-              onClick={() => setSidebarOpen(false)}
+              onClick={() => {
+                setSidebarOpen(false);
+                setFilteredText("");
+              }}
             >
               Products
             </NavLink>

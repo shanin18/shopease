@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useCart } from "../../providers/CartProvider";
 
-const PaymentDetailsForm = ({newOrder}) => {
+const PaymentDetailsForm = ({ newOrder }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [loading, setLoading] = useState(false);
@@ -40,7 +40,7 @@ const PaymentDetailsForm = ({newOrder}) => {
       });
       setLoading(false);
       removeAllCartItems();
-      // navigate("/");
+      navigate("/");
     } catch (error) {
       Swal.fire({
         title: error?.message,
@@ -61,7 +61,7 @@ const PaymentDetailsForm = ({newOrder}) => {
       <div>
         <label
           htmlFor="cardNumber"
-          className="block text-sm font-medium leading-6 text-gray-900 mb-4"
+          className="block text-sm font-medium leading-6 text-gray-900 mb-4 mt-3"
         >
           Card Number
         </label>
@@ -90,7 +90,7 @@ const PaymentDetailsForm = ({newOrder}) => {
         <button
           type="submit"
           disabled={!stripe}
-          className={`flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
+          className={`flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 ${
             loading ? "opacity-50 cursor-not-allowed" : ""
           }`}
         >
