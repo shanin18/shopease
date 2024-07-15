@@ -14,7 +14,7 @@ const Home = () => {
   const { isLoading, error, data } = useGetAllProducts();
 
   if (isLoading) return <LoadingSpinner />;
-  if (error) return <p>An error occurred: {error.message}</p>;
+  if (error) return <p className="text-center pt-20">An error occurred: {error?.message}</p>;
 
   const flashSaleData = data?.filter((item) => item.feature === "flash sale");
   const bestSellingData = data?.filter(
