@@ -1,6 +1,7 @@
 import React from "react";
 import { useCart } from "../../providers/CartProvider";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CartSummary = () => {
   const { cart } = useCart();
@@ -8,7 +9,15 @@ const CartSummary = () => {
   const navigate = useNavigate();
 
   const handleCart = () => {
-    navigate("/order-summary");
+    if (cart?.length === 0) {
+      Swal.fire({
+        title: "please add some item!",
+        icon: "error",
+      });
+      return;
+    } else {
+      navigate("/order-summary");
+    }
   };
 
   // Calculate subtotal

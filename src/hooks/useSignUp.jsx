@@ -13,7 +13,6 @@ const useSignUp = () => {
     },
     {
       onSuccess: (data) => {
-        console.log(data)
         localStorage.setItem("token", data?.token);
       },
       onError: (error) => {

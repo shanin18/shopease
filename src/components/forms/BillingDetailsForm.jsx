@@ -9,7 +9,7 @@ const BillingDetailsForm = ({ handleCoupon }) => {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(true);
-  const couponCode = "Shanin18xyz";
+  const couponCode = "shamim45102";
 
   console.log(user)
 

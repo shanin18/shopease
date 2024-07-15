@@ -21,7 +21,6 @@ const useDeleteProduct = () => {
         });
       },
       onError: (error) => {
-        console.error("Delete product error:", error.message);
         Swal.fire({
           title: "Failed to delete product",
           text: error.message,

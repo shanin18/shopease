@@ -7,6 +7,7 @@ import PaymentMethod from "./PaymentMethod";
 import OrderItems from "./OrderItems";
 import BillingDetailsForm from "../forms/BillingDetailsForm";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const OrderDetails = ({ order }) => {
   const { user } = useAuth();
@@ -63,8 +64,14 @@ const OrderDetails = ({ order }) => {
   }, [user, cart, total, order, paymentMethod]);
 
   const handlePlaceOrder = () => {
-    removeAllCartItems(), navigate("/");
-    console.log(newOrder);
+    removeAllCartItems();
+    Swal.fire({
+      title: "Payment Successful!",
+      icon: "success",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    navigate("/");
   };
 
   return (

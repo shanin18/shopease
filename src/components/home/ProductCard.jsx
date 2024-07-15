@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Ratings from "../others/Ratings";
 import defaultImage from "../../assets/images/product/defaultImage.webp";
 import { useCart } from "../../providers/CartProvider";
+import Swal from "sweetalert2";
 
 const ProductCard = React.memo(({ data, handleDelete }) => {
   const [seeMore, setSeeMore] = useState(false);
@@ -23,7 +24,10 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
     if (!itemExists) {
       addToCart(item);
     } else {
-      alert("Item already in the cart");
+      Swal.fire({
+        title: "Item already added",
+        icon: "error",
+      });
     }
   };
 
