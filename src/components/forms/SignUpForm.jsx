@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useSignUp from "../../hooks/useSignUp";
+import apiClient from "../../api/axios";
 
 const SignUpForm = () => {
   const [passMatch, setPassMatch] = useState(true);
@@ -41,18 +42,60 @@ const SignUpForm = () => {
     }
   };
 
+  const signInWithGoogle = async (email) => {
+    try {
+      const response = await apiClient.post("/users/login", {
+        email,
+        password: "google12345",
+      });
+      localStorage.setItem("token", response.data.token);
+    } catch (error) {
+      console.error(
+        "Error signing in with Google:",
+        error.response ? error.response.data : error.message
+      );
+    }
+  };
+
   const handleGoogleSignIn = async () => {
     try {
       const response = await googleLogin();
-      await signUpMutation.mutateAsync({
-        email: response?.user?.email,
-        password: "google12345",
-      });
+      const email = response?.user?.email;
+      console.log(email)
+
+      // Check if user already exists
+      const userExists = await checkUserExists(email);
+
+      if (userExists) {
+        // User exists, handle login
+        await signInWithGoogle(email);
+      } else {
+        // New user, handle registration
+        await signUpMutation.mutateAsync({
+          email,
+          password: "google12345",
+        });
+      }
     } catch (error) {
       Swal.fire({
         title: error.message,
         icon: "error",
       });
+    }
+  };
+
+  const checkUserExists = async (email) => {
+    try {
+      const response = await apiClient.get(`/users`);
+      const users = response.data; // Assuming this returns an array of users
+      const userExists = users.some((user) => user.email === email);
+      return userExists;
+    } catch (error) {
+      console.error(
+        "Error checking user existence:",
+        error.response ? error.response.data : error.message
+      );
+      return false;
     }
   };
 
@@ -160,7 +203,7 @@ const SignUpForm = () => {
       <button
         onClick={handleGoogleSignIn}
         type="submit"
-        className="border py-2 px-6 focus:outline-none bg-gray-100 rounded btn w-full"
+        className="border py-2 px-6 focus:outline-none bg-gray-100 rounded btn w-full h-fit"
       >
         <img src={googleImage} alt="google logo" loading="lazy" />
         Sign up with Google

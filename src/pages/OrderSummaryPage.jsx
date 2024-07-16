@@ -6,10 +6,11 @@ import useAuth from "../hooks/useAuth";
 const OrderSummaryPage = () => {
   const { cart } = useCart();
   const { user } = useAuth();
+  const filteredCart = cart?.filter(item => item?.email === user?.email)
 
   // Calculate order details based on the items in the cart
   const calculateOrderDetails = () => {
-    const subtotal = cart.reduce(
+    const subtotal = filteredCart.reduce(
       (acc, item) => acc + item.price * item.quantity,
       0
     );
@@ -17,7 +18,7 @@ const OrderSummaryPage = () => {
     const total = subtotal + tax;
 
     return {
-      items: cart,
+      items: filteredCart,
       subtotal: subtotal.toFixed(2),
       tax: parseFloat(tax.toFixed(2)),
       total: total.toFixed(2),

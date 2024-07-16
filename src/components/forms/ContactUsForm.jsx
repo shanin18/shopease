@@ -5,7 +5,7 @@ const ContactUsForm = () => {
   const handleContactForm = () => {
     console.log("contact form");
   };
-  
+
   return (
     <form onSubmit={handleContactForm} className="space-y-8">
       <div className="flex flex-wrap gap-5">

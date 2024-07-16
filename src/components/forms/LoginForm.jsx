@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useLogin from "../../hooks/useLogin";
 
 const LoginForm = () => {
-  const { signIn, user } = useAuth();
+  const { signIn, user, googleLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const loginMutation = useLogin();
@@ -21,7 +21,6 @@ const LoginForm = () => {
     try {
       await signIn(email, password);
       await loginMutation.mutateAsync({ email, password });
-      
     } catch (error) {
       Swal.fire({
         title: error.message,

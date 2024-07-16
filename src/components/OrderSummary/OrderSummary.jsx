@@ -17,7 +17,12 @@ const OrderSummary = ({ subTotal, discount, total, tax }) => {
       </div>
       <div className="flex items-center justify-between gap-3 py-3 border-b">
         <p>Total:</p>
-        <p>${(total + tax).toFixed(2)}</p>
+        <p>
+          $
+          {discount
+            ? total - (total + tax * discount) / 100
+            : (total + tax).toFixed(2)}
+        </p>
       </div>
     </div>
   );

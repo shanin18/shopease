@@ -12,6 +12,7 @@ import Swal from "sweetalert2";
 const OrderDetails = ({ order }) => {
   const { user } = useAuth();
   const { cart, removeAllCartItems } = useCart();
+  const filteredCart = cart?.filter((item) => item?.email === user?.email);
   const [subTotal, setSubTotal] = useState(0);
   const [total, setTotal] = useState(0);
   const [discount, setDiscount] = useState(0);
@@ -20,19 +21,19 @@ const OrderDetails = ({ order }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const subTotalAmount = cart?.reduce(
+    const subTotalAmount = filteredCart?.reduce(
       (acc, item) => acc + item.price * item.quantity,
       0
     );
     setSubTotal(subTotalAmount);
     setTotal(subTotalAmount);
-  }, [cart]);
+  }, [filteredCart]);
 
   const handleCoupon = (valid) => {
     if (valid) {
       setDiscount(10);
-      const discountedTotal = subTotal - (subTotal * 10) / 100;
-      setTotal(discountedTotal);
+      const totalAfterDiscount = subTotal - (subTotal * discount) / 100;
+      setTotal(totalAfterDiscount);
     } else {
       setDiscount(0);
     }
@@ -52,7 +53,7 @@ const OrderDetails = ({ order }) => {
       shippingMethod: order?.shippingMethod,
       estimatedDelivery: order?.estimatedDelivery,
       trackingNumber: order?.trackingNumber,
-      products: cart?.map((item) => ({
+      products: filteredCart?.map((item) => ({
         productId: item?._id,
         name: item?.name,
         quantity: item?.quantity,

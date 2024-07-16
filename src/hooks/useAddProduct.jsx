@@ -21,7 +21,6 @@ const useAddProduct = () => {
         });
       },
       onError: (error) => {
-        console.error("Add product error:", error.message);
         Swal.fire({
           title: "Failed to add product",
           text: error.message,

@@ -7,6 +7,7 @@ import Ratings from "../others/Ratings";
 import defaultImage from "../../assets/images/product/defaultImage.webp";
 import { useCart } from "../../providers/CartProvider";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const ProductCard = React.memo(({ data, handleDelete }) => {
   const [seeMore, setSeeMore] = useState(false);
@@ -14,13 +15,30 @@ const ProductCard = React.memo(({ data, handleDelete }) => {
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
   const { cart, addToCart } = useCart();
+  const { user } = useAuth();
 
   const isAllProductsPage = useLocation().pathname.includes("all-products");
   const { _id, name, img, price, ratings, ratingsCount, discount } = data;
 
   const handleAddToCart = () => {
-    const item = { _id, name, img, price, discount, quantity: 1 };
-    const itemExists = cart.some((cartItem) => cartItem._id === item._id);
+    if (!user) {
+      navigate("/auth/login");
+    }
+    const item = {
+      _id,
+      name,
+      img,
+      price,
+      discount,
+      quantity: 1,
+      email: user?.email,
+    };
+
+    console.log(cart);
+    const itemExists = cart?.some(
+      (cartItem) => cartItem.email === user?.email && cartItem._id === item._id
+    );
+
     if (!itemExists) {
       addToCart(item);
     } else {

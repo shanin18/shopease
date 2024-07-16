@@ -2,14 +2,17 @@ import React from "react";
 import { useCart } from "../../providers/CartProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const CartSummary = () => {
   const { cart } = useCart();
+  const { user } = useAuth();
+  const filteredCart = cart?.filter((item) => item?.email === user?.email);
 
   const navigate = useNavigate();
 
   const handleCart = () => {
-    if (cart?.length === 0) {
+    if (filteredCart?.length === 0) {
       Swal.fire({
         title: "please add some item!",
         icon: "error",
@@ -21,7 +24,7 @@ const CartSummary = () => {
   };
 
   // Calculate subtotal
-  const subtotal = cart?.reduce(
+  const subtotal = filteredCart?.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );

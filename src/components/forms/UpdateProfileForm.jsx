@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
 import { SlCamera } from "react-icons/sl";
 import LoadingSpinner from "../others/LoadingSpinner";
+import { useNavigate } from "react-router-dom";
 
 const UpdateProfileForm = () => {
   const [image, setImage] = useState(null);
@@ -13,6 +14,7 @@ const UpdateProfileForm = () => {
 
   const { user, updateUserPassword, updateUserProfile, updateUserEmail } =
     useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setUserProfileImage(user?.photoURL);
@@ -67,7 +69,6 @@ const UpdateProfileForm = () => {
         setImage(null);
         setPreview(null);
       } catch (error) {
-        console.error("Error uploading the image:", error);
         Swal.fire({
           title: "Error",
           text: "Error uploading the image",
@@ -90,6 +91,7 @@ const UpdateProfileForm = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate("/")
     } catch (error) {
       Swal.fire({
         title: "Error",

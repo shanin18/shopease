@@ -11,8 +11,6 @@ const BillingDetailsForm = ({ handleCoupon }) => {
   const [btnDisabled, setBtnDisabled] = useState(true);
   const couponCode = "shamim45102";
 
-  console.log(user)
-
   const handleDisableButton = (e) => {
     e.preventDefault();
     const value = e.target.value;

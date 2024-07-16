@@ -15,6 +15,18 @@ const Navbar = () => {
   const signup = location.pathname.includes("signup");
   const { logout, user } = useAuth();
   const { cart, filteredText, setFilteredText } = useCart();
+  const filteredCart = cart?.filter((item) => item?.email === user?.email);
+
+  useEffect(() => {
+    if (sidebarOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [sidebarOpen]);
 
   const handleLogout = async () => {
     await logout();
@@ -85,7 +97,7 @@ const Navbar = () => {
               </NavLink>
             )}
           </div>
-          <div className="md:flex items-center gap-6 hidden">
+          <div className="sm:flex items-center gap-6 hidden">
             {location.pathname === "/products" && (
               <div className="relative">
                 <input
@@ -103,7 +115,7 @@ const Navbar = () => {
             {user?.email && (
               <Link to="/cart" className="relative">
                 <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
-                  {cart?.length}
+                  {filteredCart?.length}
                 </span>
                 <CiShoppingCart className="text-3xl" />
               </Link>
@@ -151,7 +163,7 @@ const Navbar = () => {
             <HiOutlineBars3 className="text-2xl" />
           </button>
         </div>
-        <div className="flex items-center justify-end gap-6 p-5 pt-0 md:hidden">
+        <div className="flex items-center justify-end gap-6 p-5 pt-0 sm:hidden">
           {location.pathname === "/products" && (
             <div className="relative">
               <input
@@ -172,7 +184,7 @@ const Navbar = () => {
           {user?.email && (
             <Link to="/cart" className="relative">
               <span className="bg-red-500 text-white px-1 rounded-full text-xs absolute -right-2 top-0">
-                {cart?.length}
+                {filteredCart?.length}
               </span>
               <CiShoppingCart className="text-3xl" />
             </Link>
@@ -219,9 +231,9 @@ const Navbar = () => {
 
         {/* mobile sidebar */}
         <div
-          className={`h-screen lg:hidden z-50 w-full sm:w-[300px] shadow-2xl text-gray-700 bg-white duration-500 absolute top-0 ${
-            sidebarOpen ? "left-0" : "-left-[670px]"
-          }`}
+          className={`flex flex-col h-full lg:hidden z-30 bg-white top-0 fixed w-full sm:w-[300px] duration-300 shadow-xl left-0 ${
+            !sidebarOpen && "-left-full"
+          } overflow-hidden`}
         >
           <div className="px-5 py-6 border-b flex items-center justify-between">
             <Link to="/">

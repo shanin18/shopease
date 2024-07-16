@@ -25,6 +25,7 @@ const EditProducts = () => {
     const shipping = product.shipping;
     const ratingsCount = product.ratingsCount;
     const quantity = product.quantity;
+
     const updatedProduct = {
       id,
       name,
