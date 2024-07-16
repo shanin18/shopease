@@ -17,6 +17,8 @@ const Navbar = () => {
   const { cart, filteredText, setFilteredText } = useCart();
   const filteredCart = cart?.filter((item) => item?.email === user?.email);
 
+  console.log(sidebarOpen)
+
   useEffect(() => {
     if (sidebarOpen) {
       document.body.classList.add("overflow-hidden");
@@ -232,7 +234,7 @@ const Navbar = () => {
         {/* mobile sidebar */}
         <div
           className={`flex flex-col h-full lg:hidden z-30 bg-white top-0 fixed w-full sm:w-[300px] duration-300 shadow-xl left-0 ${
-            !sidebarOpen && "-left-full"
+            !sidebarOpen && "-left-[675px]"
           } overflow-hidden`}
         >
           <div className="px-5 py-6 border-b flex items-center justify-between">
