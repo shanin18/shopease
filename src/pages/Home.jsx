@@ -16,12 +16,11 @@ const Home = () => {
 
   if (isLoading) return <LoadingSpinner />;
   if (error)
-    return Swal.fire({
-      icon: "error",
-      title: "Something went wrong!",
-      text: "Please refresh the page",
-    });
-
+    return (
+      <p className="text-lg font-medium text-center">
+        Something went wrong! please refresh the page.
+      </p>
+    );
   const flashSaleData = data?.filter((item) => item.feature === "flash sale");
   const bestSellingData = data?.filter(
     (item) => item.feature === "best selling"
