@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import Banner from "../components/home/Banner";
 import Banner2 from "../components/home/Banner2";
 import BestSelling from "../components/home/BestSelling";
@@ -14,7 +15,12 @@ const Home = () => {
   const { isLoading, error, data } = useGetAllProducts();
 
   if (isLoading) return <LoadingSpinner />;
-  if (error) return <p className="text-center pt-20">An error occurred: {error?.message}</p>;
+  if (error)
+    return Swal.fire({
+      icon: "error",
+      title: "Something went wrong!",
+      text: "Please refresh the page",
+    });
 
   const flashSaleData = data?.filter((item) => item.feature === "flash sale");
   const bestSellingData = data?.filter(
