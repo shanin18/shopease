@@ -3,7 +3,7 @@ import SectionHeader from "../others/SectionHeader";
 import Products from "./Products";
 import LoadingSpinner2 from "../others/LoadingSpinner2";
 
-const BestSelling = ({ data, isLoading }) => {
+const BestSelling = ({ data, isLoading, error }) => {
   return (
     <section>
       <div className="flex flex-wrap items-end justify-between mb-8 gap-4 p-5 md:p-0">
@@ -15,6 +15,13 @@ const BestSelling = ({ data, isLoading }) => {
         </div>
       ) : (
         <Products data={data} />
+      )}
+      {error && (
+        <div className="py-10">
+          <p className="text-lg font-medium text-center">
+            Something went wrong! please hard refresh the page.
+          </p>
+        </div>
       )}
     </section>
   );

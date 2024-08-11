@@ -4,8 +4,7 @@ import Countdown from "../others/Countdown";
 import Products from "./Products";
 import LoadingSpinner2 from "../others/LoadingSpinner2";
 
-const FlashSales = ({ data, isLoading }) => {
-
+const FlashSales = ({ data, isLoading, error }) => {
   return (
     <section>
       <div className="flex flex-wrap items-end justify-between gap-4 mb-5 p-5 md:p-0">
@@ -18,6 +17,13 @@ const FlashSales = ({ data, isLoading }) => {
         </div>
       ) : (
         <Products data={data} />
+      )}
+      {error && (
+        <div className="py-10">
+          <p className="text-lg font-medium text-center">
+            Something went wrong! please hard refresh the page.
+          </p>
+        </div>
       )}
     </section>
   );
