@@ -14,11 +14,10 @@ const Home = () => {
   useTitle("Home");
   const { isLoading, error, data } = useGetAllProducts();
 
-  if (isLoading) return <LoadingSpinner />;
   if (error)
     return (
-      <p className="text-lg font-medium text-center">
-        Something went wrong! please refresh the page.
+      <p className="text-lg font-medium text-center mt-5">
+        Something went wrong! please hard refresh the page.
       </p>
     );
   const flashSaleData = data?.filter((item) => item.feature === "flash sale");
@@ -29,11 +28,11 @@ const Home = () => {
   return (
     <div className="container mx-auto space-y-10 md:space-y-16">
       <Banner />
-      <FlashSales data={flashSaleData} />
+      <FlashSales data={flashSaleData} isLoading={isLoading} />
       <hr />
       <Categories />
       <hr />
-      <BestSelling data={bestSellingData} />
+      <BestSelling data={bestSellingData} isLoading={isLoading} />
       <Banner2 />
       <NewArrival />
       <Services />
