@@ -3,7 +3,7 @@ import { GoArrowRight } from "react-icons/go";
 const CarouselCard = ({ item }) => {
   const { name, description, image } = item;
   return (
-    <div className="bg-black flex flex-col-reverse sm:flex-row sm:items-center justify-between p-5 min-h-auto">
+    <div className="bg-black flex flex-col-reverse sm:flex-row sm:items-center justify-between p-5 min-h-[368px]">
       <div className="lg:p-5">
         <h3 className="md:text-lg lg:text-xl mb-3">{name}</h3>
         <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-5">{description}</p>

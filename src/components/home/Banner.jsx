@@ -17,7 +17,7 @@ const Banner = () => {
 
   return (
     <section className="text-gray-600">
-      <div className="lg:flex h-auto">
+      <div className="lg:flex">
         <nav className="lg:w-1/5" aria-label="Category Menu">
           <ul className="py-1 space-y-1">
             {categories.map((category, index) => (
@@ -35,7 +35,7 @@ const Banner = () => {
           </ul>
         </nav>
 
-        <div className="lg:w-4/5 h-fit pr-0 text-white">
+        <div className="lg:w-4/5 pr-0 text-white">
           <Carousel />
         </div>
       </div>
