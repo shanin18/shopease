@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import useLogin from "../../hooks/useLogin";
 
 const LoginForm = () => {
-  const { signIn, user, googleLogin } = useAuth();
+  const { signIn, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const loginMutation = useLogin();

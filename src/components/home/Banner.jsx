@@ -1,10 +1,9 @@
 import React from "react";
 import Carousel from "./Carousel";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../../providers/CartProvider";
 
 const Banner = () => {
-  const navigate = useNavigate();
   const { setFilteredText } = useCart("");
 
   const categories = [
@@ -18,7 +17,7 @@ const Banner = () => {
 
   return (
     <section className="text-gray-600">
-      <div className="lg:flex">
+      <div className="lg:flex h-auto">
         <nav className="lg:w-1/5" aria-label="Category Menu">
           <ul className="py-1 space-y-1">
             {categories.map((category, index) => (
