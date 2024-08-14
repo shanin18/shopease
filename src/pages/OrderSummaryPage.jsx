@@ -66,7 +66,7 @@ const OrderSummaryPage = () => {
   };
 
   return (
-    <section className="container mx-auto my-12 px-5 xl:px-0">
+    <section className="container mx-auto my-7 md:my-12 px-5 xl:px-0">
       <OrderDetails order={order} />
     </section>
   );

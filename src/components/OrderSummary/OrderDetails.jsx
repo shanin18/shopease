@@ -76,35 +76,31 @@ const OrderDetails = ({ order }) => {
   };
 
   return (
-    <div>
-      <div className="md:flex justify-center gap-32">
-        <BillingDetailsForm handleCoupon={handleCoupon} />
-        <div className="w-full md:w-[500px]">
-          <OrderItems items={order?.items} />
-          <OrderSummary
-            subTotal={subTotal}
-            discount={discount}
-            total={total}
-            tax={order?.tax}
-          />
-          <PaymentMethod
-            paymentMethod={paymentMethod}
-            setPaymentMethod={setPaymentMethod}
-          />
-          {paymentMethod === "card" && (
-            <PaymentDetailsForm newOrder={newOrder} />
-          )}
-          {paymentMethod === "cash" && (
-            <div className="mt-4">
-              <button
-                onClick={handlePlaceOrder}
-                className="flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Place Order
-              </button>
-            </div>
-          )}
-        </div>
+    <div className="md:flex justify-center gap-32">
+      <BillingDetailsForm handleCoupon={handleCoupon} />
+      <div className="w-full md:w-[500px]">
+        <OrderItems items={order?.items} />
+        <OrderSummary
+          subTotal={subTotal}
+          discount={discount}
+          total={total}
+          tax={order?.tax}
+        />
+        <PaymentMethod
+          paymentMethod={paymentMethod}
+          setPaymentMethod={setPaymentMethod}
+        />
+        {paymentMethod === "card" && <PaymentDetailsForm newOrder={newOrder} />}
+        {paymentMethod === "cash" && (
+          <div className="mt-4">
+            <button
+              onClick={handlePlaceOrder}
+              className="flex w-full justify-center rounded-md bg-red-500 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Place Order
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

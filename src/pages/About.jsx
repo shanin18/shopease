@@ -8,7 +8,7 @@ const About = () => {
 
   return (
     <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-24 mx-auto" bis_skin_checked="1">
+      <div className="container px-5 py-8 md:py-16 lg:py-24 mx-auto" bis_skin_checked="1">
         <div className="lg:w-4/5 mx-auto flex flex-wrap items-center" bis_skin_checked="1">
           <div
             className="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0"

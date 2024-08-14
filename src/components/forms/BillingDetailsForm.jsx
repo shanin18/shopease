@@ -92,7 +92,7 @@ const BillingDetailsForm = ({ handleCoupon }) => {
           />
         </div>
       </form>
-      <div className="flex md:flex-nowrap flex-wrap">
+      <div className="flex md:flex-nowrap flex-wrap pt-3 mb-8">
         <div className="relative w-full sm:w-64 sm:mr-4 mr-2 mb-4 sm:mb-0">
           <input
             onChange={handleDisableButton}
