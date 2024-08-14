@@ -76,7 +76,7 @@ const OrderDetails = ({ order }) => {
   };
 
   return (
-    <div className="md:flex justify-center gap-32">
+    <div className="md:flex justify-center md:gap-20 lg:gap-32">
       <BillingDetailsForm handleCoupon={handleCoupon} />
       <div className="w-full md:w-[500px]">
         <OrderItems items={order?.items} />

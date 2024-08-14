@@ -4,11 +4,13 @@ const OrderItems = ({ items }) => {
   return (
     <div>
       <h3 className="text-xl font-semibold mb-4">Order Items</h3>
-      <div className="space-y-5 h-[20vh] overflow-y-auto p-4 border rounded-md">
+      <div className="h-[20vh] overflow-y-auto border px-4 rounded-md">
         {items?.map((item) => (
           <div
             key={item?._id}
-            className="flex items-center justify-between gap-4"
+            className={`flex flex-wrap items-center justify-between gap-3 py-4 ${
+              items.length > 1 && "border-b"
+            }`}
           >
             <div className="flex items-center gap-4">
               <div className="w-14">

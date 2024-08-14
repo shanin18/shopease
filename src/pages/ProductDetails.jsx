@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Ratings from "../components/others/Ratings";
 import LoadingSpinner from "../components/others/LoadingSpinner";
 import useTitle from "../hooks/useTitle";
 import useGetProductDetailsById from "../hooks/useGetProductDetailsById";
 
 const ProductDetails = () => {
+  const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState("l");
   const [color, setColor] = useState("black");
+  console.log(quantity)
   useTitle("Details");
   const { id } = useParams();
   const { isLoading, error, data: product } = useGetProductDetailsById(id);
@@ -17,9 +19,14 @@ const ProductDetails = () => {
 
   const { img, name, price, ratings, ratingsCount, stock, description } =
     product;
+
+
   return (
     <section className="text-gray-600 body-font overflow-hidden">
-      <div className="container px-5 py-8 md:py-16 lg:py-24 mx-auto" bis_skin_checked="1">
+      <div
+        className="container px-5 py-8 md:py-16 lg:py-24 mx-auto"
+        bis_skin_checked="1"
+      >
         <div className="lg:w-4/5 mx-auto flex flex-wrap" bis_skin_checked="1">
           <img
             alt="product image"
@@ -75,6 +82,26 @@ const ProductDetails = () => {
                   className="border-2 border-gray-300 ml-1 bg-indigo-500 rounded-full w-6 h-6 focus:outline-none"
                 ></button>
               </div>
+
+              <div className="flex items-center gap-4">
+              <span className="mr-3">Quantity: </span>
+                <div className="flex items-center space-x-2">
+                  <button
+                    className="border rounded-md px-3 py-1"
+                    onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                  >
+                    -
+                  </button>
+                  <span>{quantity}</span>
+                  <button
+                    className="border rounded-md px-3 py-1"
+                    onClick={() => setQuantity(quantity + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+              </div>
+
               <div className="flex items-center" bis_skin_checked="1">
                 <span className="mr-3">Size: </span>
                 <div className="flex flex-wrap items-center gap-4">
@@ -122,9 +149,12 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="flex" bis_skin_checked="1">
-              <button className="flex ml-auto btn text-white text-lg bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded">
+              <Link
+                to={`/order-summary`}
+                className="flex ml-auto btn text-white text-lg bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded"
+              >
                 Buy Now
-              </button>
+              </Link>
             </div>
           </div>
         </div>
